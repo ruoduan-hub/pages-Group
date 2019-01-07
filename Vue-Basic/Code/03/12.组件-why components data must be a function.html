@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../lib/vue-2.4.0.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <counter></counter>
+    <hr>
+    <counter></counter>
+    <hr>
+    <counter></counter>
+  </div>
+
+  <template id="temp">
+    <div>
+        <input type="button" value="加一" @click='increment'>
+        <h3>{{count}}</h3>
+    </div>
+  </template>
+
+  <script>
+    //var dataObj={count:0}
+    Vue.component('counter',{
+      template:'#temp',
+      data:()=>{
+        return {count:0}
+      },
+      methods:{
+        increment() {
+          this.count++
+        }
+      }
+    })
+
+    var vm=new Vue({
+      el:'#app',
+      data:{},
+      methods:{}
+    });
+  </script>
+</body>
+</html>

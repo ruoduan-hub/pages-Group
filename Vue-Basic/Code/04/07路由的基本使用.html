@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../lib/vue-2.4.0.js"></script>
+  <script src="../lib/vue-router-3.0.1.js"></script>
+  <style>
+    .router-link-active,.myActive{
+      color: red;
+      font-weight: 800;
+      font-size: 30px;
+      background-color: pink;
+    }
+    .v-enter,
+    .v-leave-to{
+      opacity: 0;
+      transform: translateX(120px);
+    }
+    .v-enter-active,
+    .v-leave-active{
+      transition: all 0.6s ease;
+    }
+
+
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <a href="#/login">登录</a>
+    <a href="#/register">注册</a> -->
+
+    <!-- router-link 默认渲染a标签 -->
+    <router-link to="/login" tag="span">登录</router-link>
+    <router-link to="/register">注册</router-link>
+
+    <transition name="" mode="out-in">
+        <router-view></router-view>
+    </transition>
+    
+  </div>
+
+
+  <script>
+    var login={
+      template:'<h3>登录组件</h3>'
+    }
+    var register={
+      template:'<h3>注册组件</h3>'
+    }
+
+
+    var routerObj=new VueRouter({
+      routes:[
+        //{ path: '/', component: login },//根路径默认指向 login 不推荐
+        { path: '/', redirect: '/login' },//重定向
+        { path: '/login', component: login },
+        { path: '/register', component: register }
+      ],
+      linkActiveClass: 'myActive'
+    });
+
+    var vm =new Vue({
+      el:'#app',
+      data:{
+        name:{name:'xm'}
+      },
+      methods:{},
+      router:routerObj
+    });
+  </script>
+</body>
+</html>

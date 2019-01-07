@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../lib/vue-2.4.0.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <my-com2></my-com2>
+  </div>
+
+
+  <script>
+    Vue.component('myCom2',{
+      // 注意:不论是哪种方式创建出来的组件,组件的 template 属性指向的模板内容,必须有且只能有唯一的一个根元素
+      template:'<div><h3>这是使用component创建的组件</h3><span>这是同级的span标签</span></div>'
+    })
+
+
+    var vm=new Vue({
+      el:'#app',
+      data:{},
+      methodes:{}
+    });
+  </script>
+</body>
+</html>

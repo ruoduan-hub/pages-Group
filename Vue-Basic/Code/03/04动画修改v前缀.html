@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../lib/vue-2.4.0.js"></script>
+  <style>
+    
+    .v-enter,
+    .v-leave-to {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+      transition: all 0.8s ease;
+    }
+
+
+    .my-enter,
+    .my-leave-to {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+
+    .my-enter-active,
+    .my-leave-active {
+      transition: all 0.8s ease;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+    <div id="app">
+      <input type="button" value="toggle" @click="flag=!flag">
+      <!-- 需求： 点击按钮，让 h3 显示，再点击，让 h3 隐藏 -->
+      <!-- 需求： 点击按钮，让 h3 显示，再点击，让 h3 隐藏 -->
+    <!-- 1. 使用 transition 元素，把 需要被动画控制的元素，包裹起来 -->
+    <!-- transition 元素，是 Vue 官方提供的 -->
+      <transition name="" mode="">
+          <h3 v-if="flag">这是一个H3</h3>
+      </transition>
+
+    <hr>
+
+    <input type="button" value="toggle2" @click="flag2=!flag2">
+    
+      <transition name="my" mode="">
+          <h3 v-if="flag2">这是一个H3</h3>
+      </transition>
+      
+    </div>
+  
+    <script>
+      // 创建 Vue 实例，得到 ViewModel
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          flag: false,
+          flag2: false
+        },
+        methods: {}
+      });
+    </script>
+  </body>
+</html>

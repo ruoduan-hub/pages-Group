@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../lib/vue-2.4.0.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+            <h1 :style="[obj1,obj2]" >我是h1标签</h1>
+    </div>
+   
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                obj1:{ color: 'red', 'font-weight': 200 },
+                obj2:{'font-size':'50px'}
+            },
+            methods: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

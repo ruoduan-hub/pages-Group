@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../lib/vue-2.4.0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg |msgFormat('啦啦传参的过滤器') |text}}</h1>
+    </div>
+
+
+    <script>
+        // 定义一个 Vue 全局的过滤器，名字叫做  msgFormat
+        Vue.filter('msgFormat',(msg,arg) => {
+        // 字符串的  replace 方法，第一个参数，除了可写一个 字符串之外，还可以定义一个正则
+           return msg.replace(/你好/g,arg);
+        });
+        Vue.filter('text',(msg)=>{
+            return msg+'==='
+        });
+
+
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:'你好，vue。veu，你好'
+            },
+            methods:{}
+        });
+    </script>
+</body>
+</html>

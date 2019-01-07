@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .inner{
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .outer{
+            width: 300px;
+            height: 300px;
+            background-color: blue;
+        }
+    </style>
+    <script src="../lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="outer" @click='outer'>
+            <div class="inner" @click.self="divHandler">
+                    <!-- capture 从外到里执行 添加事件侦听器时使用事件捕获模式 -->
+                    <!-- .self只当事件在该元素本身（比如不是子元素）触发时触发回调 -->
+                    <input type="button" value="按钮" @click='btnHandler'>
+                    <!-- 阻止事件冒泡 .stop -->        
+            </div>
+        </div>
+    <!-- .stop 和 .self 的区别:.self 只会阻止自己身上冒泡行为的触发，并不会真正阻止 冒泡的行为 -->
+
+
+        <a href="https://www.baidu.com" @click.prevent.once='linkClick'>百度</a>
+                        <!-- 阻止默认事件prevent    .once事件只触发一次-->
+    </div>
+
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+            },
+            methods:{
+                divHandler(){
+                    console.log('这是inner触发的事件')
+                },
+                btnHandler(){
+                    console.log('这是btnHandler触发的事件')
+                },
+                linkClick(){
+                    console.log('这是a触发的事件')
+                },
+                outer(){
+                    console.log('这是outer触发的事件')
+                }
+            }
+        });
+    </script>
+</body>
+</html>

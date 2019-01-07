@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="../lib/vue-2.4.0.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <input type="button" value="获取元素" @click='getElement'>
+
+    <h3 ref='myh3'>h3标签元素</h3>
+    <h2 ref='myh2'>h3标签元素</h2>
+    <hr>
+    <login ref='mylogin'></login>
+  </div>
+
+  <script>
+    var login={
+      data(){
+        return {
+          msg:'son msg'
+        }
+      },
+      methods:{
+        show () {
+          console.log('调用了子组件的方法')
+        }
+      },
+      template:'<h1>全局组件</h1>'
+    }
+
+    var vm=new Vue({
+      el:"#app",
+      data:{},
+      methods:{
+        getElement(){
+          //ref  是 英文单词 【reference】   值类型 和 引用类型  referenceError
+          console.log(this.$refs.myh3);
+          //console.log(this.$refs.mylogin.msg);
+          this.$refs.mylogin.show()
+          
+        }
+      },
+      components: {
+        login
+      }
+    });
+  </script>
+</body>
+</html>
