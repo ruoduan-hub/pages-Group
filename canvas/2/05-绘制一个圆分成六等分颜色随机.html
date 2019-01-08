@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var myCanvas = document.querySelector('canvas');
+    var ctx = myCanvas.getContext('2d');
+
+    var w = ctx.canvas.width;
+    var y = ctx.canvas.height;
+    //分成几等分
+    var num = 5;
+    //一份多少弧度
+    var angle = Math.PI * 2 / num;
+
+    //原点坐标
+    var x0 = w / 2;
+    var y0 = y / 2;
+
+    //获取随机颜色
+    var getRandomColor = function () {
+        var r = Math.floor(Math.random() * 255 + 1);
+        var g = Math.floor(Math.random() * 255 + 1);
+        var b = Math.floor(Math.random() * 255 + 1);
+        return 'rgb(' + r + ',' + g + ',' + b + ')';
+    };
+    console.log(getRandomColor());
+    /*上一次绘制的结束弧度等于当前次的起始弧度*/
+    //var startAngle = 0;
+    for (var i = 0; i < num; i++) {
+        var starAngle = i * angle;
+        var endAngle = (i + 1) * angle;
+        ctx.beginPath();
+        ctx.moveTo(x0, y0);
+        ctx.arc(x0, y0, 150, starAngle, endAngle);
+        //随机颜色
+        ctx.fillStyle = getRandomColor();
+        ctx.fill();
+    }
+
+
+</script>
+</body>
+</html>

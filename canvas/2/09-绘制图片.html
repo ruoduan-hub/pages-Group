@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    var myCanvas = document.querySelector('canvas');
+    var ctx = myCanvas.getContext('2d');
+
+    /*1.加载图片到内存即可*/
+    /*var img = document.createElement('img');
+    img.src = 'image/01.jpg';*/
+    /*创建对象*/
+    var image=new Image();
+    /*绑定加载完成事件*/
+    image.onload=function () {
+        console.log(image);//存储在内存当中
+        /*绘制图片的三种方式*/
+        //x,y 图片绘制的左上角
+        //ctx.drawImage(image,100,100);
+
+        //五个参数drawImage(img,x,y,w,h)
+        //- img 图片对象、canvas对象、video对象
+       //- x,y 图片绘制的左上角
+        //- w,h 图片绘制尺寸设置(图片缩放，不是截取)
+        //ctx.drawImage(image,100,100,100,100);
+
+
+        /*9个参数*/
+        /*图片对象*/
+        /*图片上定位的坐标  x y */
+        /*在图片上截取多大的区域  w h*/
+        /*绘制在画布上的坐标 x y*/
+        /*是图片的大小  不是裁剪  是缩放*/
+        ctx.drawImage(image,100,100,500,500,0,0,500,500);
+
+    };
+
+
+    //  设置图片路径
+    image.src='image/02.jpg';
+
+
+</script>
+</body>
+</html>

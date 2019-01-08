@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="400"></canvas>
+<script>
+    var myCanvas = document.querySelector('canvas');
+    var ctx = myCanvas.getContext('2d');
+
+    //绘制矩形路径，不是独立路径
+    // ctx.rect(10,100,200,200);
+    // ctx.stroke();
+    // ctx.fillStyle='hotpink'
+    // ctx.fill();
+
+    //描边矩形，具有独立路径，
+
+    ctx.translate(0.5, 0.5);
+    ctx.strokeStyle='blue';
+    ctx.strokeRect(100,100,200,200);
+
+
+    ctx.fillStyle='pink';
+    ctx.fillRect(200,200,100,100);
+
+    //清除矩形内容
+    ctx.clearRect(0,0,150,150);
+</script>
+</body>
+</html>
