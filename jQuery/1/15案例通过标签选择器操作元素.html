@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    /*
+*
+* id选择器
+* $("#id属性的值")---->某个元素
+* 标签选择器
+* $("标签名字")------>多个元素或者是某个元素
+*
+* */
+
+
+    // .text()方法相当于DOM中的.innerText属性
+    // 对象.text()----->获取该元素的文本内容
+    // 对象.text("值")---->设置该元素的文本内容
+    // 页面加载事件
+    $(function () {
+        //id获取按钮元素
+        $("#btn").click(function () {
+            //类样式获取类元素
+            $("p").text("p");//本身代码没有循环操作,jQuery中内部帮助我们循环操作的----->隐式迭代
+        });
+    });
+
+
+    // window.onload=function () {
+    //     document.getElementById("btn").onclick=function () {
+    //         console.log(1);
+    //         var objP=document.getElementsByTagName("p");
+    //         for (var i=0;i<objP.length;i++){
+    //             objP[i].innerText="改变内容"
+    //         }
+    //     };
+    // };
+
+</script>
+
+<input type="button" id="btn" value="点击改变样式" />
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+
+</body>
+</html>

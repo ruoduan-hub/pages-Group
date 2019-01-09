@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            //交集选择器----标签+类选择器
+            //先找p标签,从p标签中找应用了cls类样式的元素
+            $("li.cls").css("backgroundColor","red");
+        });
+    });
+</script>
+
+
+<input type="button" id="btn" value="点击改变样式" />
+<p class="cls">p</p>
+<p>p</p>
+<ul>
+    <li class="cls">第一个li</li>
+    <li class="cls">二个li</li>
+    <li>第三个li</li>
+</ul>
+</body>
+</html>

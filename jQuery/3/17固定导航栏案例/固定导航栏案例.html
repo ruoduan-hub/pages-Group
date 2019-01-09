@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>防腾讯固定导航栏</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            width: 1000px;
+            margin: 0 auto;
+        }
+        .top {
+            width: 1423px;
+            height: 171px;
+            margin: 0 auto;
+        }
+        .nav {
+            height: 86px;
+            margin: 0 auto;
+            width: 1423px;
+        }*
+    </style>
+    <script src="../../jquery-3.3.1.js"></script>
+    <script>
+      $(function () {
+        //浏览器的滚动条上下移动的时候,设置页面中的nav的div固定在页面的顶部或者是回到原来的位置
+
+        //为浏览器注册滚动的事件
+        $(window).scroll(function () {
+            //获取页面的向上卷曲出去的距离的值
+
+            //console.log($(this).scrollTop());
+            //如果向上卷曲出去的距离的值大于或者是等于第一个div的高度
+            if ($(this).scrollTop()>=$(".top").height()){
+                //设置导航栏固定在页面的顶部
+                //设置导航栏在顶部的值是0
+                $(".nav").css("position","fixed").css("top",0);
+                //设置.main的div的位置,不是直接跳上去的
+                $(".main").css("marginTop",$(".nav").height())
+            }else {
+                $(".nav").css("position","static");
+                $(".main").css("marginTop",0);
+            }
+        });
+
+
+      });
+
+    </script>
+</head>
+
+<body>
+<div class="top">
+    <img src="images/top.png" />
+</div>
+<div class="nav">
+    <img src="images/nav.png" />
+</div>
+<div class="main">
+    <img src="images/main.png" />
+</div>
+</body>
+
+</html>

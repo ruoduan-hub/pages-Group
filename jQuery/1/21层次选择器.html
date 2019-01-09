@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        #dv {
+            width: 700px;
+            height: 400px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            //获取的是div这个父级元素中所有span标签(直接的子元素,孙子元素)
+            //$("#dv span").css("backgroundColor","red");
+            //获取的是div这个父级元素中直接的子元素
+            //$("#dv>span").css("backgroundColor","yellow")
+            //获取的是div这个父级元素后面的所有的兄弟元素---span
+            //$("#dv~span").css("backgroundColor","yellow")
+            //获取的是div后面直接的兄弟元素
+            $("#dv+span").css("backgroundColor","red");//有p标签隔着，无效
+
+        });
+    });
+</script>
+
+
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv">
+    <span>这是第一个span</span>
+    <ul>
+        <li>第一个li</li>
+        <li>第二个li
+            <span>第二个li中的span</span>
+            <span>第二个li中的span</span>
+        </li>
+        <li>第三个li</li>
+    </ul>
+    <span>这是第二个span</span>
+    <span>这是第三个span</span>
+</div>
+
+<span>这是div后面的兄弟元素span</span>
+<span>这是div后面的兄弟元素span</span>
+<span>这是div后面的兄弟元素span</span>
+</div>
+</body>
+</html>

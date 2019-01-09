@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    div{
+      width: 300px;
+      height: 200px;
+      border: 1px solid red;
+      overflow: auto;
+    }
+  </style>
+  <script src="../jquery-3.3.1.js"></script>
+  <script>
+
+    //scroll系列:
+    /*
+    * DOM中的
+    * scrollLeft:向左卷曲出去的距离的值
+    * scrollTop:向上卷曲出去的距离的值
+    * scrollWidth:元素中内容的实际的宽
+    * scrollHeight:元素中内容的实际的高
+    *
+    *
+    * */
+  </script>
+
+
+  <script>
+
+//    $(function () {
+//
+//      $("#btn").click(function () {
+//
+//        //console.log($("#dv").scrollLeft());
+//        //console.log($("#dv").scrollTop());
+//
+//        //获取元素向上卷曲出去的距离,  scrollTop()--->方法,数字类型
+//        //获取元素向左卷曲出去的距离,  scrollLeft()--->方法,数字类型
+//        //console.log($("#dv").scrollHeight);
+//      });
+//    });
+
+
+    //div滚动上下滚动条的时候,一直获取他的向上卷曲出去的值
+
+$(function () {
+  $("#dv").scroll(function () {
+    console.log($(this).scrollTop());
+  });
+});
+
+
+  </script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv">
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+  哈哈,我让你先得瑟一会,给你机会,让你先自由的活着.
+</div>
+
+</body>
+</html>

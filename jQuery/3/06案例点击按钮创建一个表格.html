@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    var arr=[
+        {"name":"百度","href":"http://www.baidu.com"},
+        {"name":"快播","href":"http://www.kuaibo.cn"},
+        {"name":"优酷","href":"http://www.youku.cn"},
+        {"name":"爱奇艺","href":"http://www.iqiyi.cn"},
+        {"name":"B站","href":"http://www.bili.cn"},
+        {"name":"土豆","href":"http://www.tudou.cn"}
+    ];
+
+    $(function () {
+        //点击按钮创建表格
+        $("#btn").click(function () {
+            //创建表格
+            var table=$("<table style='cursor: pointer' border='1' cellspacing='1' cellpadding='1'></table>");
+            //把表格加入到div中
+            $("#dv").append(table);
+            //循环遍历数组,创建行
+            for (var i=0;i<arr.length;i++){
+                var dt=arr[i];//每个数组元素,都是对象
+                //创建行,并加入到table中
+                var tr=$("<tr></tr>");
+                table.append(tr);
+                //在列中显示内容,列在行中
+                //创建td,并加入到tr中
+                var td1=$("<td>"+dt.name+"</td>");
+                tr.append(td1);
+                var td2=$("<td><a href='"+dt.href+"'>"+dt.name+"</a></a></td>");
+                tr.append(td2);
+                tr.mouseenter(function () {
+                    $(this).css("backgroundColor","red")
+                }).mouseleave(function () {
+                    $(this).css("backgroundColor","");
+                });
+            }
+
+            $("#btn2").click(function () {
+                //table.remove();
+                //当前这个按钮下一个兄弟元素里面的子元素
+                //$(this).next().empty();
+                $("#dv").empty();
+                //$("#dv").children("table").remove();
+            });
+            $("#btn3").click(function () {
+                let tr=$("<tr><td>腾讯</td ><td><a href='http://www.qq.com/'>腾讯</a></td></tr>");
+                //添加到table中
+                $("#dv").children("table").append(tr);
+            });
+        });
+    });
+</script>
+
+<input type="button" value="点击创建" id="btn"  />
+<input type="button" value="点击移除" id="btn2"  />
+<input type="button" value="添加一行" id="btn3"  />
+<div id="dv" style="width: 300px;height: 500px; border: 1px solid red"></div>
+</body>
+</html>

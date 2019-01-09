@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv"></div>
+<!--负责引入js文件的-->
+<script src="jquery-1.12.1.js"></script>
+<script>
+
+
+  //jQuery的js文件每个版本有两个,第一个文件是正常的,第二个是压缩的,开发的时候使用谁都可以,上线的时候使用压缩的
+
+
+  //点击按钮,设置div的宽和高,及背景颜色
+  $("#btn").click(function () {
+    $("#dv").css({"width":"200px","height":"100px","backgroundColor":"yellow"});
+  });
+
+  //引入jQuery的js文件
+
+</script>
+
+<script>
+
+  //点击按钮,设置div的宽和高,背景颜色
+
+  //DOM方式实现
+//  document.getElementById("btn").onclick = function () {
+//    var dvObj = document.getElementById("dv");
+//    dvObj.style.width = "200px";
+//    dvObj.style.height = "100px";
+//    dvObj.style.backgroundColor = "pink";
+//  };
+
+
+
+  //jQuery来实现,先引入jQuery的js文件
+
+
+</script>
+
+</body>
+</html>

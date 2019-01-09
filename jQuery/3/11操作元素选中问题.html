@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+
+            /*
+             *
+             * 设置或者是获取元素的选中的问题
+             * 推荐使用prop()方法
+             * .prop("属性",值); 值一般是布尔类型----->目前这么写代码是设置选中
+             * .prop("属性");-----获取这个元素是否选中
+             *
+             * */
+            //点击按钮
+            $("#btn").click(function () {
+                //$("#ck7").attr("checked","true");
+                $("#ck7").prop("checked","true");
+            });
+        });
+    </script>
+
+</head>
+<body>
+<input type="button" value="选中/不选中" id="btn"/>
+<input type="checkbox" value="1" name="play"/>吃饭
+<input type="checkbox" value="2" name="play"/>睡觉
+<input type="checkbox" value="3" name="play"/>打豆豆
+<input type="checkbox" value="4" name="play"/>打篮球
+<input type="checkbox" value="5" name="play"/>打足球
+<input type="checkbox" value="6" name="play"/>打铅球
+<input type="checkbox" value="7" name="play" id="ck7"/>打小苏
+
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: green;
+        }
+        p{
+            width: 100px;
+            height: 30px;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                //为div绑定三个事件
+                $("#dv").click(function () {
+                    console.log("div点击了")
+                }).mouseenter(function () {
+                    console.log("鼠标进来了")
+                }).mouseleave(function () {
+                    console.log("鼠标离开了");
+                });
+            });
+            //在div中创建一个p他是绑定点击事件
+            $("<p>this is p</p>").appendTo("#dv");
+            $("#dv").delegate("click","p",function () {//点击p标签 ，div的点击事件也被触发了
+                console.log("p的点击事件");
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="绑定事件" id="btn"/>
+<input type="button" value="解绑事件" id="btn2"/>
+<div id="dv"></div>
+
+</body>
+</html>

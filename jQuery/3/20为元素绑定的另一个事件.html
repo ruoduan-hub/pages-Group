@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            //为父级元素绑定事件,父级元素代替子级元素绑定事件
+            //子级元素委托父级绑定事件
+
+            //父级元素调用方法,为子级元素绑定事件
+            $("#dv").delegate("p","click",function () {
+               alert("点击了");
+            });
+        });
+    });
+
+    //为元素绑定事件三种方式
+    /*
+    * 对象.事件名字(事件处理函数);---$("#btn").click(function(){});
+    * 对象.bind("事件名字",事件处理函数);---$("#btn").bind("click",function(){});
+    * 父级对象.delegate("子级元素","事件名字",事件处理函数);---->$("#dv").delegate("p","click",function(){});
+    *
+    *
+    * */
+</script>
+
+<input type="button" id="btn" value="点击绑定事件" />
+<div id="dv" style="border: 1px solid red; width: 300px;">
+    <p style="border: 1px solid green">p标签</p>
+</div>
+</body>
+</html>

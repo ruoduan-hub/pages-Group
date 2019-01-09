@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+    //点击按钮给li添加自定义属性
+
+    /*
+  *
+  * .attr(参数1,参数2);-----设置某个属性的值
+  * .attr(参数1);-----获取某个属性的值
+  *
+  * 参数1:属性的名字
+  * 参数2:属性的值
+  *
+  * .attr方法主要是操作元素的自定义属性的,但是也可以操作元素的自带的属性(html中本身就有的属性),但是,
+  * 但可是:操作元素的选中的ckeched的时候,不是很合适! 操作元素的选中的checked的时候,推荐使用prop方法
+  *
+  * */
+
+    $(function () {
+        $("#btn").click(function () {
+            //自定义一个成绩的属性
+            $("#dv>ul>li").attr("score",100);
+
+            //也可以对内置属性进行操作
+            $("#dv>ul>a").attr("href","http://www.baidu.com").text("百度");
+        });
+
+    });
+</script>
+
+<input type="button" id="btn" value="显示效果" />
+<div id="dv">
+    <ul style="list-style: none">
+        <a></a>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+</body>
+</html>

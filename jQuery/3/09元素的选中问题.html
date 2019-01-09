@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script src="../jquery-3.3.1.js"></script>
+  <script>
+    $(function () {
+      //点击按钮选中性别
+      $("#btn").click(function () {
+        //DOM中操作
+        //document.getElementById("r3").checked=true;
+        //jQuery操作
+        //$("#r3").get(0).checked=true;//DOM的写法
+        //需要使用自定义属性的方式
+        //$("#r3").attr("checked",true);//设置
+        //获取是否被选中了
+        //console.log($("#r3").attr("checked"));//undefined
+
+        //如果标签默认选中了---attr("checked")--->结果:checked
+        //如果标签没有选中----attr("checked")---->结果:undefined
+
+
+        //点击按钮,选中就设置不选中,如果没有选中,就设置选中的结果
+
+        //attr方法针对单选框或者是复选框的是否选中问题,操作起来很麻烦,几乎不用,后面说
+        if($("#r3").attr("checked")==undefined){
+          //undefined
+          $("#r3").attr("checked",true);
+            console.log($("#r3").attr("checked"));
+        }else{
+          //checked--->选中了
+          $("#r3").attr("checked",false);
+            console.log($("#r3").attr("checked"));
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="选中" id="btn"/><br/>
+请选择小苏的性别:
+<input type="radio" value="1" name="sex"/>男
+<input type="radio" value="2" name="sex"/>女
+<input type="radio" value="3" name="sex" id="r3"/>人妖
+
+</body>
+</html>

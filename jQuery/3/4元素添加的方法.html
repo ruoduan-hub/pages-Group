@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            //插入到第一个子元素前面
+            //$("#dv").prepend("<span>this is apan</span>");
+            //$("<span>this is span </span>").prependTo("#dv");
+
+            //添加到div后面的位置，成为了div的兄弟元素
+            //$("#dv").after($("<span>this is span </span>"));
+            //添加到div前面面的位置，成为了div的兄弟元素
+            $("#dv").before($("<span>this is span </span>"));
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="添加按钮" />
+<div id="dv">
+    <p>创建之前有内容</p>
+</div>
+
+</body>
+</html>

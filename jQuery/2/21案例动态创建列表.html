@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+    /*
+    * 内置对象:js中系统自带的,Array,Object,Date,Math,RegExp
+    * 浏览器对象:window
+    * 自定义对象:自己定义的构造函数创建的对象
+    * DOM对象:通过DOM方式获取的对象
+    * jQuery对象:通过jQuery方式获取的对象
+    *
+    *
+    * */
+
+    $(function () {
+        array=["风斯托罗斯基","小苏坨萝斯基","助教坨萝斯基","尼古拉斯凯奇赵四","小胖妞","杰森斯坦森班主任","小明","小红","小李","小白","小绿","小黑"];
+
+        //根据id选择器获取按钮,添加点击事件
+        $("#btn").click(function () {
+            var ulobj=$("<ul style='cursor: pointer;list-style: none'></ul>").appendTo($("#dv"));
+            //创建li标签,加入到ul中---循环遍历数组
+            for (let i=0;i<array.length;i++){
+                $("<li>"+array[i]+"</li>").appendTo(ulobj).mouseenter(function () {
+                    $(this).css("backgroundColor","red");
+                }).mouseleave(function () {
+                    $(this).css("backgroundColor","");
+                });
+            }
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="添加列表" />
+<div id="dv" style="width: 300px;height: 600px;border: 1px solid red"></div>
+</body>
+</html>

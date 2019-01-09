@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            if ($("#ck").prop("checked")==true){
+                $("#ck").prop("checked",false);
+            } else {
+                $("#ck").prop("checked",true);
+            }
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="点击切换" />
+<input type="checkbox" value="1" name="play" id="ck" />玩游戏
+</body>
+</html>

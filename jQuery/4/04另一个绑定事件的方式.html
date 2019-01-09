@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    div{
+      width: 300px;
+      height: 200px;
+      background-color: green;
+    }
+    p{
+      width: 100px;
+      height: 30px;
+      background-color: red;
+      cursor: pointer;
+    }
+    </style>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+    $(function () {
+      //点击按钮为div绑定事件
+
+      //此时on和delegate的作用是一样的,但是参数的顺序是不一样
+      $("#btn").click(function () {
+        $("<p>这是一个p</p>").appendTo($("#dv"));
+        //和delegate是一样,都是在为子元素绑定事件
+        $("#dv").on("click","p",function () {
+          alert("p被点击了");
+        });
+      });
+
+
+      $("#btn2").click(function () {
+        $("<p>这是一个p2</p>").appendTo($("#dv"));
+
+      });
+
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="绑定事件" id="btn"/>
+<input type="button" value="绑定事件" id="btn2"/>
+<div id="dv"></div>
+
+</body>
+</html>

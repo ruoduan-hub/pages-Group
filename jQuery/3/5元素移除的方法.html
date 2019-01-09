@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+    $(function () {
+       $("#btn").click(function () {
+           //从父级别元素移除所有的子元素
+           //$("#dv").html("");
+           //$("#dv").empty();
+
+           //想要移除谁，就让谁调这个方法
+           $("#dv").remove();//自杀
+       });
+    });
+</script>
+
+<input type="button" id="btn" value="移除元素" />
+<div id="dv" style="border: 1px solid rebeccapurple">
+    <span>span</span>
+    <p>p</p>
+</div>
+</body>
+</html>

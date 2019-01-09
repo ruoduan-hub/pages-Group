@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+
+        /*
+        * show和hide方法有参数
+        * 参数1:时间----1000毫秒---1秒
+        * 参数2:回调函数---动画执行完毕后才执行
+        *
+        * 参数和上面的是一样
+        * slideDown()滑出
+        * slideUp()滑入
+        * slideToggle()切换滑入和滑出
+        *
+        * fadeIn()淡入
+        *
+        * fadeOut()淡出
+        *
+        * fadeToggle()切换淡入和淡出
+        *
+        * fadeTo(时间,透明值结束);
+        *
+        * slow 比较慢的
+        * fast 比较快的
+        * normal
+
+        * */
+
+    //
+    //    $(function () {
+    //
+    //      //点击第一个按钮显示div
+    //      $("#btn1").click(function () {
+    //         $("#dv").slideDown(500,function () {
+    //           alert("显示了");
+    //         });//滑出
+    //      });
+    //      //点击第二个按钮隐藏div
+    //      $("#btn2").click(function () {
+    //        $("#dv").slideUp(500,function () {
+    //          alert("隐藏了");
+    //        });//滑入
+    //      });
+    //      //第三个按钮
+    //      $("#btn3").click(function () {
+    //        $("#dv").slideToggle(5000);
+    //      });
+    //    });
+
+
+    $(function () {
+
+        //滑入，滑出
+        // $("#btn1").click(function () {//回调函数---动画执行完毕后才执行
+        //     $("#dv").slideDown(600,function () {
+        //         console.log("显示了")
+        //     });
+        // });
+        // $("#btn2").click(function () {
+        //     $("#dv").slideUp(600,function () {
+        //         console.log("隐藏了")
+        //     });
+        //
+        // });
+        // $("#btn3").click(function () {
+        //     $("#dv").slideToggle(600,function () {
+        //         console.log("切换了")
+        //     });
+        //
+        // });
+
+        //淡入淡出
+        $("#btn1").click(function () {//回调函数---动画执行完毕后才执行
+            $("#dv").fadeIn(600,function () {
+                console.log("显示了")
+            });
+        });
+        $("#btn2").click(function () {
+            $("#dv").fadeOut(600,function () {
+                console.log("隐藏了")
+            });
+
+        });
+        $("#btn3").click(function () {
+            // $("#dv").fadeToggle(600,function () {
+            //     console.log("切换了")
+            // });
+            $("#dv").fadeTo("fast",0.2);
+
+        });
+    });
+</script>
+
+<input type="button" value="显示" id="btn1" />
+<input type="button" value="隐藏" id="btn2" />
+<input type="button" value="切换" id="btn3" />
+<div id="dv" style="width: 300px;height: 200px;background-color: deeppink;"></div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    .cls{
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+<input type="button" value="开关" id="btn"/>
+<script src="jquery-1.12.1.js"></script>
+<script>
+
+  $("#btn").click(function () {
+    //判断body标签是否应用了cls的类样式
+    if($("body").hasClass("cls")){
+      //此处应用了cls类样式,那么就移除这个类样式
+      $("body").removeClass("cls");
+    }else{
+      //此处没有应用类样式cls,那么就添加类样式
+      $("body").addClass("cls");
+    }
+  });
+
+//  $("#btn").click(function () {
+//    if($("body")[0].className=="cls"){
+//      $("body")[0].className="";
+//    }else{
+//      $("body")[0].className="cls";
+//    }
+//  });
+</script>
+
+</body>
+</html>

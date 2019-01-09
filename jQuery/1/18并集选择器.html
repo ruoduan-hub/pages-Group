@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: green;
+        }
+        .cls{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            //div,p,span
+            $("#dv,p,.cls").css("backgroundColor","orange");
+        });
+    });
+</script>
+<input type="button" value="点击改变样式" id="btn" />
+<div id="dv">zhehsi div</div>
+<p>p</p>
+<span class="cls">span标签</span>
+<span class="cls">span标签</span>
+<span>span标签</span>
+</body>
+</html>

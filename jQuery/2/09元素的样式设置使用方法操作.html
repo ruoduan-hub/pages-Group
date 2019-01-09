@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    .cls{
+      width: 200px;
+      height: 100px;
+      background-color: crimson;
+    }
+    .cls2{
+      border: 2px solid green;
+    }
+  </style>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+    $(function () {
+      $("#btn").click(function () {
+        //为div设置类样式,同时应用多个类样式
+        //$("#dv").addClass("cls");
+
+        //$("#dv").addClass("cls").addClass("cls2");
+
+        //$("#dv").addClass("cls cls2");
+
+        //console.log($("#dv").addClass("cls"));
+
+        //addClass()方法,括号里什么也没有,返回来的仍然是这个对象,即使在括号中设置了内容,返回来的还是这个对象
+        //removeClass()方法,同上
+
+
+
+        //移除类样式
+        //$("#dv").removeClass("cls");
+
+        //$("#dv").removeClass("cls").removeClass("cls2");
+
+        //$("#dv").removeClass("cls cls2");
+
+        //console.log($("#dv").removeClass("cls"));
+
+        //css方法是不能添加或者移除类样式的
+        //$("#dv").css("class","cls");
+
+      });
+    });
+
+
+    //总结:设置元素的样式可以使用css()方法,也可以使用addClass()或者是removeClass()方法
+  </script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv"></div>
+
+</body>
+</html>

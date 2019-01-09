@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script src="jquery-1.12.1.js"></script>
+  <script>
+    //页面加载事件
+    $(function () {
+      //根据id选择器获取按钮,添加点击事件,修改按钮的value属性值
+      $("#btn").click(function () {
+        //this.value="哈哈";
+
+        //错误的
+        //this.val("哈哈");
+
+        console.log($(this).val());
+        $(this).val("嘎嘎,下雨了");
+      });
+    });
+
+  </script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+
+</body>
+</html>

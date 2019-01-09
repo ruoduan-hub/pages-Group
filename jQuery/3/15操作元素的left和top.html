@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        #dv{
+            width: 200px;
+            height: 200px;
+            background-color: hotpink;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    $(function () {
+        //点击按钮left，top变为原来的2倍
+        $("#btn").click(function () {
+            // var l= $("#dv").css("left");
+            // var t= $("#dv").css("top");
+            // var left1=parseInt(l)*2;
+            // var top1=parseInt(t)*2;
+            // $("#dv").css("left",left1);
+            // $("#dv").css("top",top1);
+
+            //该方法获取的是一个对象,该对象中有两个属性,left和top
+            //left和top包含left和margin-left和top和margin-top的值
+            //console.log($("#dv").offset().left);//数值类型
+
+            // $("#dv").css("left",$("#dv").offset().left*2);
+            // $("#dv").css("top",$("#dv").offset().top*2);
+
+            $("#dv").offset({left:"200",top:"200"});
+
+        });
+    });
+    /*
+* 可以设置,也可以获取
+* .width()是元素的宽
+* .height()是元素的高
+*
+* .offset()--->获取的是对象,可以设置,也可以获取
+* .offset({"left":值,"top":值});设置
+*
+* */
+</script>
+
+<input type="button" id="btn" value="改变样式" />
+<div id="dv"></div>
+</body>
+</html>

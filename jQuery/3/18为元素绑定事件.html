@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    $(function () {
+        //    $("#btn").click(function () {
+        //        alert("被点了")
+        //    }).mouseenter(function () {
+        //        $(this).css("backgroundColor","red")
+        //    }).mouseleave(function () {
+        //        $(this).css("backgroundColor","yellow")
+        //    });
+        // });
+
+        //bind 写法
+        $("#btn").bind({
+            "click": function () {
+                alert("点击了");
+            }, "mouseenter": function () {
+                $(this).css("backgroundColor", "red");
+            }, "mouseleave": function () {
+                $(this).css("backgroundColor", "yellow");
+            }
+        });
+    });
+</script>
+
+
+<input type="button" id="btn" value="显示效果"/>
+</body>
+</html>

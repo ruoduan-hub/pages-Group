@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            for (let i=0;i<10;i++){
+                $("#dv").append("<p>aaaaaaa</p>");
+            }
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="创建元素" />
+<div id="dv"></div>
+</body>
+</html>

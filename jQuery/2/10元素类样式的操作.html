@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    .cls{
+      width: 200px;
+      height: 100px;
+      background-color: red;
+    }
+    .cls2{
+      border: 2px solid green;
+    }
+  </style>
+  <script src="../jquery-3.3.1.js"></script>
+  <script>
+   $(function () {
+     $("#btn").click(function () {
+       //判断这个元素是否应用了某个类样式
+       if($("#dv").hasClass("cls cls2")){
+         console.log("应用了");
+       }else{
+         console.log("没有应用");
+       }
+     });
+   });
+
+
+    //hasClass()是判断元素使用应用了这个类样式的
+    //addClass()添加类样式
+    //removeClass()移除类样式
+  </script>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv" class="cls cls2"></div>
+
+</body>
+</html>

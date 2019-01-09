@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            $("#dv").css("width","200px");
+            $("#dv").css("height","200");
+            $("#dv").css("backgroundColor","yellow");
+            $("#dv").css("border","1px solid black");
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="点击改变样式" />
+<div id="dv"></div>
+</body>
+</html>

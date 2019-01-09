@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+    $(function () {
+        // $("#btn").click(function () {
+        //     console.log(1)
+        // }).click(function () {
+        //     console.log(2)
+        // }).click(function () {
+        //     console.log(3)
+        // });
+
+        $("#btn").bind({
+            "click":function () {
+              console.log(1)
+            },"click":function () {
+                console.log(2)
+            }
+        })
+        //bind方法内部是调用的另一个方法绑定的事件
+
+    });
+</script>
+
+<input type="button" id="btn" value="显示效果" />
+</body>
+</html>

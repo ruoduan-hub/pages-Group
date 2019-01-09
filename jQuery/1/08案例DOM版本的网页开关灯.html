@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    .cls{
+      background-color: black;
+    }
+  </style>
+  <script>
+
+  </script>
+</head>
+<body>
+<input type="button" value="关灯" id="btn"/>
+<script>
+
+  //DOM版本的---10行代码
+  document.getElementById("btn").onclick=function () {
+      //判断
+    var body=document.body;
+    if(body.className=="cls"){
+      body.className="";
+      this.value="关灯";
+    }else{
+      body.className="cls";
+      this.value="开灯";
+    }
+  };
+</script>
+</body>
+</html>

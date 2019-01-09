@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+
+</head>
+<body>
+<input type="button" value="按钮" id="btn"/>
+<script src="jquery-1.12.1.js"></script>
+
+<script>
+
+  //DOM对象
+  var btnObj=document.getElementById("btn");
+  //jQuery对象
+  //$(btnObj)
+  //$(btnObj)[0]------>$($(btnObj)[0])---jQuery对象-----没人这么写
+
+
+  //为什么要把DOM对象转jQuery对象,为什么又把jQuery对象转DOM对象
+  //DOM操作很麻烦(兼容,一个功能写好多代码)---->转jQuery对象,操作简单,不需要写兼容，
+  //jQuery操作中,有一些兼容没封装在jQuery中,转DOM对象,通过原生的js代码实现功能,如果后面都解决了,又想简单的写代码操作内容,再转回jQuery对象
+
+
+
+
+</script>
+<script>
+
+
+  //这个按钮----如果通过DOM获取----DOM对象
+  //这个按钮----如果通过$或者是jQuery的方式获取---jQuery对象
+
+
+  //DOM获取的---DOM对象
+  //var btnObj1=document.getElementById("btn");
+  //DOM的操作需要解决一些兼容的问题,jQuery中的兼容问题都差不多解决了
+  //DOM对象---转成jQuery对象，那么就可以使用jQuery中的方法或者属性了
+  //DOM对象调用jQuery的方法---不能实现,必须是jQuery对象调用jQuery的方法
+  //如何把DOM对象转----jQuery对象----->$(DOM对象)----jQUery对象
+
+//  $(btnObj1).click(function () {
+//    console.log("哈哈,我又变帅了,小杨果然很帅");
+//  });
+  //错误的
+//  btnObj1.click(function () {
+//    console.log("哈哈,小苏太帅了");
+//  });
+
+
+
+
+
+  //jQuery获取的---jQuery对象
+  //var btnObj2=$("#btn");
+  //jQuery对象调用DOM对象的属性和方法,不能实现
+  //jQuery对象转---DOM对象---jQuery对象[0]-----DOM对象
+
+//  btnObj2[0].onclick=function () {
+//    console.log("哈哈,我又变帅了");
+//  };
+
+  //错误的
+//  btnObj2.onclick=function () {
+//    console.log("助教比小杨帅");
+//  };
+
+
+//
+//  console.log(btnObj1==btnObj2);
+
+</script>
+
+</body>
+</html>

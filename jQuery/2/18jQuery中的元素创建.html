@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            //在父级元素div中追加一个创建后的子元素
+            //父级元素.append(子级元素);
+            //$("#dv").append("<a href='https://www.baidu.com'>百度</a>");
+
+            //创建一个子级元素直接加到父级元素
+            $("<a href='http://www.sogou.com'>搜狗</a>").appendTo($("#dv"));
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="创建元素" />
+<div id="dv"></div>
+</body>
+</html>

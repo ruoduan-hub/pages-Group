@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+
+    /*
+*
+* show和hide方法有参数
+* 参数1:时间----1000毫秒---1秒
+* 参数2:回调函数---动画执行完毕后才执行
+*
+* */
+
+    $(function () {
+        $("#btn1").click(function () {//回调函数---动画执行完毕后才执行
+            $("#dv").show(600,function () {
+                alert("显示了");
+            });
+        });
+        $("#btn2").click(function () {
+            $("#dv").hide(600,function () {
+                alert("隐藏了");
+            });
+
+        });
+    });
+</script>
+
+<input type="button" value="显示" id="btn1" />
+<input type="button" value="隐藏" id="btn2" />
+<div id="dv" style="width: 300px;height: 200px;background-color: deeppink;"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background-color: green;
+        }
+        p{
+            width: 100px;
+            height: 30px;
+            background-color: red;
+            cursor: pointer;
+        }
+    </style>
+    <script src="../jquery-3.3.1.js"></script>
+    <script>
+        $(function () {
+            //第一个按钮,为元素绑定事件
+            $("#btn").click(function () {
+                $("#dv").click(function () {
+                    alert("点击了");
+                }).mouseenter(function () {
+                   $(this).css("backgroundColor","yellow");
+                }).mouseleave(function () {
+                    $(this).css("backgroundColor","red");
+                });
+            });
+
+            //用什么方法绑定事件，最好用对应方式解绑解绑事件
+            /*unbind("事件1 事件2") 括号中什么都不写，解绑所有的事件
+            *
+            * */
+            $("#btn2").click(function () {
+                //$("#dv").unbind("click");//解绑指定事件---不推荐
+                $("#dv").off("click mouseleave");//解绑指定事件---推荐
+            });
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="绑定事件" id="btn"/>
+<input type="button" value="解绑事件" id="btn2"/>
+<div id="dv"></div>
+
+</body>
+</html>

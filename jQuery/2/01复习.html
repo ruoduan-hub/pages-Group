@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <script>
+    /*
+    * 复习:
+    * jQuery是一个js文件,可以看成是JS库中的一种,里面封装了很多的兼容代码及函数
+    * js库---->JavaScript库---->JavaScript函数库---->是一个大的范围
+    * jQuery的特点:体积小,写的少做的多,链式编程,隐式迭代,开源,免费
+    * jQuery中的顶级对象
+    * jQuery或者是$
+    * jQuery中页面的加载事件的几种方式
+    * $(window).load(function(){});页面中所有的内容全部加载完毕后才触发
+    * $(document).ready(function(){});页面中基本的元素加载后才触发
+    * jQuery(function(){});
+    * $(function(){});
+    * jQuery中页面加载事件和DOM中页面加载的事件的区别?
+    * jQuery中的加载事件都是方法,方法可以调用多次
+    * DOM中的加载事件是注册事件,是以赋值的方式来注册事件,不能出现多次,除非使用事件绑定的方式
+    *
+    * DOM的作用是操作页面元素的
+    * jQuery其实就是js代码的一个封装,js能做什么,jQuery就可以做什么
+    * jQuery主要是学习自带的一些方法的操作,所以,也可以操作页面的元素
+    *
+    * 获取元素的方式:通过选择器或者是筛选器
+    *
+    * id选择器
+    * $("#id属性的值");------>$("#btn")---某个按钮
+    * 类选择器
+    * $(".类样式的名字");-----$(".cls")--->获取的是应用了cls类样式的元素
+    * 标签选择器
+    * $("标签的名字");-------$("p")----->获取的是所有的p标签
+    *
+    * 交集选择器---标签+类选择器
+    * $("标签名字.类样式的名字");------>$("p.cls");---->应用了cls类样式的p标签
+    *
+    * 并集选择器---多条件选择器
+    * $("选择器,选择器,选择器");----->$("#btn,p,.cls");-->id为btn的元素和所有的p标签和所有应用了cls类样式的元素
+    *
+    * 筛选器
+    *
+    * 层次选择器
+    * $("div p");---->div中所有的p标签(直接的子元素p标签或者是孙子的p标签)
+    * $("div>p");---->div中直接的子元素p标签
+    * $("div~p");---->div后面所有的兄弟元素p标签
+    * $("div+p");---->div后面直接的兄弟元素(紧挨着的那个)p标签
+    *
+    * $("div").children("p");从div的直接的子元素中找所有的p标签
+    * $("ul>li").index();---该li的索引值
+    *
+    *
+    * 方法
+    * 显示的方式
+    * show();
+    * 隐藏的方法
+    * hide();
+    * 停止动画的方法
+    * stop();
+    *
+    * 设置获取是获取某个表单标签的value属性值
+    * .val()
+    * 设置某个标签中间的文本内容
+    * .text()---相当于innerText,括号啥也没有,表示的是获取,括号里有一个参数,是设置
+    * 设置某个标签中间的html内容
+    * .html()---相当于innerHTML,同上
+    * .css()----设置元素的样式
+    *
+    *
+    *
+    * 索引选择器----
+    * $("li:eq(2)");----->所有的li中的索引为2的li元素-----第三个li
+    *
+    *
+    *
+    * DOM对象和jQuery对象互转的问题
+    *
+    * 通过DOM的方式获取的对象是DOM对象
+    * 通过jQuery的方式获取的对象是jQuery对象
+    * DOM对象转jQuery对象---->$(DOM对象)
+    * jQuery对象转DOM对象---->$()[0]---DOM对象,或者是$().get(0)也可以
+    *
+    *
+    *
+    *
+    *
+    * */
+
+    //事件绑定是事件解绑的两个兼容代码的函数各三遍
+    function addEventListener(element,type,fn) {
+      if(element.addEventListener){
+        element.addEventListener(type,fn,false);
+      }else if(element.attachEvent){
+        element.attachEvent("on"+type,fn);
+      }else{
+        element["on"+type]=fn;
+      }
+    }
+    function removeEventListener(element,type,fn) {
+      if(element.removeEventListener){
+        element.removeEventListener(type,fn,false);
+      }else if(element.detachEvent){
+        element.detachEvent("on"+type,fn);
+      }else{
+        element["on"+type]=null;
+      }
+    }
+  </script>
+</head>
+<body>
+<div>
+  <p>这是p</p>
+  <ul>
+    <li><p>这是也是p</p></li>
+  </ul>
+</div>
+<script src="jquery-1.12.1.js"></script>
+<script>
+  $("div").children("p").css("backgroundColor","red");
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    $(function () {
+        // $("#btn").click(function () {
+        //     $("<input type='button' value='按钮' />").appendTo($("#dv"));
+        // });//会重复添加
+
+        //通过innerHTML的方式创建元素---以字符串的方式
+        $("#btn").click(function () {
+            //只能创建一个，采用赋值的方式会覆盖
+            $("#dv").html("<input type='button' value='按钮' />");
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="添加按钮" />
+<div id="dv">创建之前有内容</div>
+
+</body>
+</html>

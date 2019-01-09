@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        ul {
+            list-style-type: none;
+            width: 200px;
+            position: absolute;
+            left: 500px;
+        }
+
+        ul li {
+            margin-top: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 20px;
+
+        }
+    </style>
+
+    <script>
+        $(function () {
+           $("#btn").click(function () {
+               //奇---红色,偶---黄色
+               //odd----奇数的
+               //even---偶数的
+               $("#uu>li:odd").css("backgroundColor","red");
+               $("#uu>li:even").css("backgroundColor","yellow");
+           });
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="隔行变色" id="btn"/>
+<ul id="uu">
+    <li>乔峰:降龙十八掌</li>
+    <li>张无忌:乾坤大挪移</li>
+    <li>段誉:鳞波微步</li>
+    <li>丁棚:天外流星贱</li>
+    <li>张三丰:太极掌</li>
+    <li>段飞:极乐神功</li>
+    <li>云飞扬:天馋功</li>
+    <li>杨过:黯然销魂掌</li>
+    <li>那谁谁:如来神掌</li>
+    <li>孟星魂:流星蝴蝶剑</li>
+    <li>楠哥:少女萌萌拳</li>
+</ul>
+
+
+</body>
+</html>

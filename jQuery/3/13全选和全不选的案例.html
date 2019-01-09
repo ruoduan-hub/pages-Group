@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    .wrap {
+      width: 300px;
+      margin: 100px auto 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+    }
+
+    td {
+      font: 14px "微软雅黑";
+    }
+
+    tbody tr {
+      background-color: #f0f0f0;
+    }
+
+    tbody tr:hover {
+      cursor: pointer;
+      background-color: #fafafa;
+    }
+  </style>
+  <script src="../jquery-3.3.1.js"></script>
+  <script>
+    $(function () {
+
+      //全选和全不选
+      //获取thead中的复选框,获取他的这个选中的状态
+
+//      $("#j_cbAll").click(function () {
+//        //获取当前的复选框的选中状态
+//        var flag= $(this).prop("checked");
+//        //判断选中状态
+//        if(flag){
+//          $("#j_tb").find("input").prop("checked",true);
+//        }else{
+//          $("#j_tb").find("input").prop("checked",false);
+//        }
+//      });
+
+
+      //thead标签中的复选框----全选和全不选
+      $("#j_cbAll").click(function () {
+        //直接设置tbody中复选框的选中状态和当前点击的复选框的选中状态一致
+        $("#j_tb").find("input").prop("checked",$(this).prop("checked"));
+      });
+
+
+      //每个复选框都要注册点击事件
+      $("#j_tb").find("input").click(function () {
+        //先获取所有的复选框的个数
+        var ckLength=$("#j_tb").find("input").length;
+        console.log(ckLength)
+        //获取所有选中的复选框的个数
+        var checkedLenth=$("#j_tb :checked").length;
+        console.log(checkedLenth)
+        //console.log(ckLength+"====="+checkedLenth);//测试代码
+//        if(ckLength==checkedLenth){
+//          $("#j_cbAll").prop("checked",true);
+//        }else{
+//          $("#j_cbAll").prop("checked",false);
+//        }
+        $("#j_cbAll").prop("checked",checkedLenth==ckLength);
+      });
+
+
+    });
+  </script>
+
+</head>
+
+<body>
+<div class="wrap">
+  <table>
+    <thead>
+    <tr>
+      <th>
+        <input type="checkbox" id="j_cbAll"/>
+      </th>
+      <th>课程名称</th>
+      <th>所属学院</th>
+    </tr>
+    </thead>
+    <tbody id="j_tb">
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>JavaScript</td>
+      <td>前端与移动开发学院</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>css</td>
+      <td>前端与移动开发学院</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>html</td>
+      <td>前端与移动开发学院</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox"/>
+      </td>
+      <td>jQuery</td>
+      <td>前端与移动开发学院</td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+</body>
+
+</html>

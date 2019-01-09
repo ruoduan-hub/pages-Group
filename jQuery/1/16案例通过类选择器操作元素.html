@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        .cls{
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //类选择器:$(".类样式的名字")---某个或者是多个
+    //.css("属性","值");-----设置某个元素的css样式属性值
+    $(function () {
+        //根据id选择器获取按钮,添加点击事件
+        $("#btn").click(function () {
+            //获取所有应用cls类样式的元素,改变背景颜色
+            $(".cls").css("backgroundColor","yellow");
+            $(".cls").css("border","1px solid red");
+        })
+    });
+</script>
+
+<input type="button" id="btn" value="点击改变样式" />
+<div class="cls"></div>
+<div class="cls"></div>
+<p>这是一个p标签</p>
+<p></p>
+</body>
+</html>

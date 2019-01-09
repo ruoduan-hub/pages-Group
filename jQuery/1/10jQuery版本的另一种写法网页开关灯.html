@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<input type="button"id="btn" value="关灯" />
+<script>
+    //根据id属性获取按钮，注册点击事件，（添加点击事件，调用点击事件的方法）
+    $("#btn").click(function () {
+        if ($(this).val()=="关灯"){
+            $("body").css("backgroundColor","black");
+            $(this).val("开灯");
+        }else {
+            $("body").css("backgroundColor","");
+            $(this).val("关灯");
+        }
+    });
+</script>
+</body>
+</html>

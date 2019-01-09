@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        #dv{
+            width: 200px;
+            height: 200px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    $(function () {
+        $("#dv").mousedown(function (e) {
+            //console.log(arguments.length);
+            //console.log(e);//jquery 对象
+            //获取的是鼠标的按键的值
+            console.log(e.button);
+        });
+    });
+</script>
+
+<div id="dv"></div>
+</body>
+</html>

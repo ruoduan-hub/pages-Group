@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>title</title>
+  <style>
+    div {
+      width: 300px;
+      height: 200px;
+      background-color: green;
+    }
+
+    p {
+      width: 100px;
+      height: 30px;
+      background-color: red;
+      cursor: pointer;
+    }
+  </style>
+  <script src="../jquery-3.3.1.js"></script>
+  <script>
+    $(function () {
+
+      //用什么方式绑定事件,最好用对应的方式解绑事件
+      //bind括号中写什么事件的名字就会把这个事件解绑,会把这个元素的这个点击的多个事件都会解绑
+      //对象.click()这种方式添加的事件也可以使用unbind解绑
+      //括号中没有任何参数,此时该元素的所有的事件全部解绑
+      //同时解绑多个事件---每个事件的名字中间用空格即可
+
+
+      //delegate绑定事件对应的方式的解绑方式
+
+      //点击第一个按钮,div有自己的点击事件,有鼠标进入和鼠标离开事件
+      //同时为p绑定点击事件
+
+      $("#btn").click(function () {
+        //为div绑定事件
+        $("#dv").click(function () {//点击事件
+          console.log("div被点了");
+        }).mouseenter(function () {//鼠标进入
+          console.log("鼠标进来了");
+        }).mouseleave(function () {//鼠标离开
+          console.log("鼠标离开了");
+        });
+        //在div中创建一个p,同时绑定点击事件
+        $("<p>这是一个p</p>").appendTo($("#dv"));
+        //为p绑定事件
+        $("#dv").on("click","p",function () {
+          console.log("啊~,p被点了");
+        });
+        $("#dv").on("mouseenter","p",function () {
+          console.log("啊~,进入到p里面来了,哦");
+        });
+        $("#dv").on("click","span",function () {
+          console.log("哦,span被点了");
+        });
+      });
+      //第二个按钮解绑事件
+      $("#btn2").click(function () {
+        // 解绑事件
+        // 父级元素和子级元素的所有的事件全部解绑
+        // $("#dv").off();
+        // 把父级元素和子级元素的点击事件解绑
+        // $("#dv").off("click");
+        // 父级元素和子级的元素的多个事件,中间用空格
+        // $("#dv").off("click mouseenter");
+        // 解绑p标签的点击事件
+        // $("#dv").off("click","p");
+        // p的两个事件都没了
+        // $("#dv").off("click mouseenter","p");
+        // p的所有的事件全部解绑
+        // $("#dv").off("","p");
+        // 干掉div中所有的子元素的点击事件
+        // $("#dv").off("click","**");
+      });
+    });
+
+
+    //页面加载
+    $(function () {
+      //为按钮绑定点击事件
+      $("#btn1").on("click",function () {
+        console.log("哈哈,我又变帅了");
+      });
+    });
+  </script>
+</head>
+<body>
+<input type="button" value="哈哈,我是按钮" id="btn1"/>
+<input type="button" value="绑定事件" id="btn"/>
+<input type="button" value="解绑事件" id="btn2"/>
+<div id="dv">
+<span>这是span</span>
+</div>
+
+</body>
+</html>

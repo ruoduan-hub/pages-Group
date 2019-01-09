@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+    <style>
+        .cls{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+<script>
+    // $(function () {
+    //     $("#btn").click(function () {
+    //        if ($("body").hasClass("cls")){//判断是否应用了，是移除，否添加
+    //            $("body").removeClass("cls");
+    //        }else {
+    //            $("body").addClass("cls");
+    //        }
+    //     });
+    // });
+
+    //第二种方式
+
+    $(function () {
+        $("#btn").click(function () {
+            //切换类样式
+           $("body").toggleClass("cls");
+        });
+    });
+</script>
+
+<input type="button" value="开/关灯" id="btn" />
+
+</body>
+</html>

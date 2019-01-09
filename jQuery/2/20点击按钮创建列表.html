@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+
+<script>
+    $(function () {
+        $("#btn").click(function () {
+            var ulobj=$("<ul style='list-style: none;cursor: pointer'></ul>");
+            $("#dv").append(ulobj);
+            $("<li>降龙十八掌</li><li>六脉神剑</li><li>葵花宝典</li>  <li>辟邪剑谱</li><li>少女萌萌拳</li>")
+                .appendTo(ulobj).mouseenter(function () {
+                $(this).css("backgroundColor","red");
+            }).mouseleave(function () {
+                $(this).css("backgroundColor","");
+            }).click(function () {
+                $(this).css("color","green").css("fontSize","50px").css("fontFamily","楷体");
+            })
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="创建列表" />
+<div id="dv" style="width: 300px;height: 700px;border: 1px solid deepskyblue"></div>
+</body>
+</html>

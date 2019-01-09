@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    $(function () {
+        $("#btn").click(function () {
+           $(".dv").html("<p>这是一个p标签<p>")
+        });
+    });
+</script>
+
+<input type="button" id="btn" value="点击添加p"/>
+<div class="dv" style="width: 200px;height: 160px; background-color:pink"></div>
+</body>
+</html>
