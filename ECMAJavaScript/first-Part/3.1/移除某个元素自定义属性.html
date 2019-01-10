@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        .cls{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="点击移除自定义属性" id="btn">
+<div id="dv" style="width: 200px;height: 160px;" class="cls" score="10"></div>
+<div class="xx好"></div>
+<script>
+    //移除自定义属性.removeAttribute(属性的名字);
+    my$("btn").onclick=function () {
+        //my$("dv").removeAttribute("score");
+        //移除类样式
+        //my$("dv").className="";//可以做到效果但是移除不干净，只是让值变为空了
+        //my$("dv").removeAttribute("class")//直接移除属性
+        my$("dv").remove("cls");//连同div标签一起被移除，移除的是带class的这个标签
+    }
+</script>
+</body>
+</html>

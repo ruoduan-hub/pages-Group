@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //实例化对象
+    var obj= new Object();
+    //对象有数线和方法
+
+    //添加属性-------------对象.名字=值；
+    obj.name="小明";
+    obj.age=18;
+    obj.like="学习";
+    obj.sex="男";
+    //添加方法-------------对象.名字=函数；
+    obj.eat=function () {
+        console.log("肉");
+    };
+    obj.play=function () {
+        console.log("吃鸡");
+    };
+    obj.cook=function(){
+        console.log("切菜");
+        console.log("洗菜");
+        console.log("煮菜");
+        console.log("出锅");
+        console.log("eat");
+    }
+    //获取对象的名字输出了；
+    console.log(obj.name);
+    console.log(obj.sex);
+    console.log(obj.age);
+
+    //让对象做出行为（方法）
+    obj.eat();
+    obj.play();
+    obj.cook();
+
+    //创建一个手机对象
+    var iphone=new Object();
+
+    iphone.sex="iphone x";
+    iphone.color="白色";
+    iphone.price="8600rmb";
+
+    iphone.call=function () {
+        console.log("打电话");
+    };
+    iphone.sendMessage=function () {
+        console.log("在干嘛");
+    };
+    iphone.call();
+    iphone.sendMessage();
+</script>
+</body>
+</html>

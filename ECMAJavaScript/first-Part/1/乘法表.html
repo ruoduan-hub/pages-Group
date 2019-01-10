@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乘法表</title>
+</head>
+<body>
+
+
+<script>
+    for (var i = 1; i <= 9; i++) {
+        //控制有几行
+        for (var j = 1; j <= i; j++) {
+            //控制每一行有几个表达式
+            document.write(j + "*" + i+ "=" + i * j+"&nbsp&nbsp&nbsp");
+            //这里是字符串的拼接 i的值+j的值=（i*j）从而达到拼接成一个公式的效果，后面在拼接三个空格用来隔开美观
+        }
+        document.write("<br />");
+        //每一行的个数，随着行数增加而增加，形成三角效果且<=9; 达到9*9乘法表的效果；
+    }
+</script>
+
+
+
+<script>
+    //表格版本-------------乘法表
+
+    document.write("<table border='1' cellpadding='0' cellspacing='0'>");
+        for (var i=1;i<=9;i++){  //控制行数
+            document.write("<tr>");
+            for (var j =1;j<=i;j++){
+                document.write("<td>");
+                    document.write(j+"*"+i+"="+i*j +"&nbsp&nbsp&nbsp");
+                document.write("</td>");
+            }
+            document.write("<tr />");
+        }
+
+    document.write("<table/>");
+
+</script>
+</body>
+</html>

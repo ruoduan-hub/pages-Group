@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Person(name,age) {
+      this.name=name;
+      this.age=age;
+    };
+
+    //通过原型来添加方法，解决数据共享，节省内存空间
+    Person.prototype.eat=function () {
+        console.log("吃饭");
+    };
+    var per1=new Person("小明","18");
+    var per2=new Person("小红","20");
+    console.log(per1.eat==per2.eat);
+    console.dir(per1);
+    console.dir(per2);
+</script>
+</body>
+</html>

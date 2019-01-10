@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="box" style="width: 500px;margin:200px auto;">
+    <input type="text" style="width: 350px" id="txt" />
+    <input type="button" value="搜索" id="btn" />
+</div>
+
+<script>
+    //先创建一个数组的字符串库
+    var keyWords = ["小杨才是最纯洁的", "小杨才是最帅的", "小段是最猥琐的",
+        "小超是最龌龊的", "传智播客是一个培训机构", "传说在传智有个很帅很纯洁的小杨",
+        "苹果好吃", "苹果此次召回还是没有中国"];
+    //获取文本框注册键盘抬起事件
+    my$("txt").onkeyup=function () {//onkeyup键盘抬起事件
+        //每一次抬起键盘都判断box中有没有div有就删除
+        if (my$("dv")){
+            //删除一次
+            my$("box").removeChild(my$("dv"));
+        }
+        //获取文本框输入内容
+        var text=this.value;
+        //临时数组，空数组存放----------对应上的数据
+        var tempArr=[];
+        //把输入的内容和数组中的每个数据进行对比
+        for (var i=0;i<keyWords.length;i++) {
+            //是否是最开始出现的
+            if (keyWords[i].indexOf(text)==0){
+                tempArr.push(keyWords[i]);//把对应的字符串追加到临时数组中
+            }
+        }
+        //如果文本框是空的,临时数组是空的,不用创建div
+        if (this.value.length==0||tempArr.length==0){
+            //如果页面中有这个div,删除这个div
+            if (my$("dv")){
+                my$("box").removeChild("dv");
+            }
+            return false;
+        }
+        //创建div,把div加入id为box的div中
+        var dvobj=document.createElement("div");
+        my$("box").appendChild(dvobj);
+        dvobj.id="dv";
+        dvobj.style.width="350px";
+        //dvobj.height="50px;";
+        dvobj.style.border="1px solid red";
+        //循环遍历临时数组创建标签
+        for (var i=0;i<tempArr.length;i++){
+            //创建p标签
+            var pobj=document.createElement("p");
+            //把p追加到div中
+           dvobj.appendChild(pobj);
+           setInnerText(pobj,tempArr[i]);
+           pobj.style.margin="0";
+           pobj.style.padding="0";
+           pobj.style.cursor="pointer";
+           //鼠标进入
+            pobj.onmouseover=mouse;
+            //鼠标离开
+            pobj.onmouseout=mouse;
+        }
+    };
+    function mouse(eve) {
+        switch (eve.type ){
+            case "mouseover":this.style.backgroundColor="yellow";break;
+            case "mouseout":this.style.backgroundColor="";break;
+        }
+    };
+
+
+</script>
+</body>
+</html>

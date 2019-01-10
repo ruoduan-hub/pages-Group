@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+<script>
+    /*定时器：
+    * 参数1:函数
+    * 参数2：时间---毫秒---1000毫秒===1秒
+    * 返回值就是定时器的id
+    * 直接过程不断执行
+    **/
+    // window.onload=function () {
+    //     var timeId=setInterval(function () {
+    //         alert("哈哈");//断言
+    //     },1000)
+    //     console.log(timeId);
+    //     //停止计时器
+    //     document.getElementById("btn").onclick=function () {
+    //         //参数要清理定时器的id
+    //         window.clearInterval(timeId);
+    //     };
+    //
+    // }
+
+
+    //另一个定时器 （一次性的）
+    setTimeout(function () {
+        alert("哈哈");
+    },1000)
+</script>
+<input type="button" value="点击停止计时" id="btn" />
+</body>
+</html>

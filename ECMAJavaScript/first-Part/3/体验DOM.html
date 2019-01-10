@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //点击操作--->事件：就是一个事件，有触发，响应，事件源；
+        /**
+         * 按钮被点击，弹出对话框
+         * 按钮：事件源
+         * 点击：事件名字
+         * 被点了：触发了
+         * 弹框了：响应
+         */
+
+    </script>
+</head>
+<body>
+
+<!--<input type="button" value="弹框" onclick="alert('点击事件')">-->
+
+<!--第二个版本-->
+<!--<input type="button" value="弹框" onclick="f1()">  &lt;!&ndash; 还是没有做到分离&ndash;&gt;-->
+<!--<script>-->
+    <!--function f1() {-->
+        <!--alert("弹出了")-->
+    <!--};-->
+<!--</script>-->
+
+
+
+<script>
+
+    /**
+     * html页面里面id是唯一的
+     * 从文档中找到id值为btn这个标签（元素）
+     * document.getElementById("id属性的值")； 返回的是一个元素的对象
+     */
+    //根据id获取这个标签（元素）
+    var btnObjet=document.getElementById("btn");
+    //为按钮注册点击事件
+    btnObjet.onclick=f2;//后面的括号应该去掉，不然就是页面加载完触发点击事件了
+    function f2() {
+        alert("点击按钮2");
+    };
+</script>
+<input type="button" value="弹框按钮" id="btn" />
+<!--报错 Uncaught TypeError: Cannot set property 'onclick' of null at-->
+<!--得先有按钮，才能获取，获取之后才能注册事件-->
+
+
+<!--最终版-->
+<input type="button" value="最终按钮" id="btn1" />
+<script>
+    // var btnObj1=document.getElementById("btn1");
+    // btnObj1.onclick=function () {
+    //     alert("最终按钮，点击了");
+    // }
+    document.getElementById("btn1").onclick=function () {
+        //他们2个的区别就在于一个创建了变量一个没有创建变量，看需求和情况使用
+        alert("最终按钮1，点击了")
+    }
+</script>
+</body>
+</html>

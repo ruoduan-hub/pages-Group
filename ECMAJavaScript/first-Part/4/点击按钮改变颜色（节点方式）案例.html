@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<input type="button" id="btn" value="点击变色" />
+<div id="dv" style="width: 150px; border: 2px solid green">
+    <span>这是一个span</span>
+    <p>这是一个p</p>
+    <span>这是一个span</span>
+    <p>这是一个p</p>
+    <span>这是一个span</span>
+    <p>这是一个p</p>
+    <span>这是一个span</span>
+    <br>这是一个a<a href="#"></a>
+</div>
+<script>
+    my$("btn").onclick=function () {
+        //找到div赋值给dvobj
+        var dvobj=my$("dv");
+        //找到div下面的所有的子元素赋值给nodes
+        var nodes=dvobj.childNodes;
+        //循环遍历所有的子元素判断他们是不是标签且nodeName要是大写的P；遭到P标签
+        for (i=0;i<nodes.length;i++){
+            if (nodes[i].nodeType==1&&nodes[i].nodeName=="P"){
+                //给符合条件的P标签一个背景颜色
+                nodes[i].style.backgroundColor="pink";
+            }//end if
+        }//end for
+    } //end function
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #dv {
+            width: 200px;
+            height: 100px;
+            background-color: cornflowerblue;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv"></div>
+<script>
+    //点击按钮获取元素的值
+    // my$("btn").onclick=function () {
+    //     //第一个参数：元素第二个参数：伪类
+    //     // console.log(getComputedStyle(my$("dv"),null).left);//IE8不支持
+    //     console.log(my$("dv").currentStyle.left);//谷歌，火狐不支持
+    // };
+
+    //兼容代码
+    // function getStyle(element,attr) {
+    //   if (window.getComputedStyle){
+    //       return getComputedStyle(element,null)[attr];
+    //   }else {
+    //       return element.currentStyle[attr];
+    //   }
+    // };
+    //简化
+    //点击按钮获取元素的值
+    function getStyle(element,attr) {
+        return window.getComputedStyle?window.getComputedStyle(element,null)[attr]:element.currentStyle[attr];
+    };
+
+    //测试
+
+    console.log(getStyle(my$("dv"),"left"));
+
+</script>
+</body>
+</html>

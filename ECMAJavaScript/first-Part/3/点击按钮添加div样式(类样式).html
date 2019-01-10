@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../2/0common.js"></script>
+</head>
+<body>
+<style>
+    .cls{
+        width: 200px;
+        height: 152px;
+        background-color: yellow;
+    }
+</style>
+<input type="button" value="显示" id="btn" />
+<div id="dv"></div>
+<script>
+    // my$("btn").onclick=function () {
+    //     my$("dv").className="cls";
+    // }
+    //优化版本
+    my$("btn").onclick=function () {
+        if (my$("dv").className!="cls"){
+            //现在是显示应该隐藏
+            my$("dv").className="cls"
+            this.value="显示";
+        }else{
+            my$("dv").className="";
+            this.value="隐藏";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+
+    (function () {
+        var str="小白喜欢小黑";
+        str=str.substr(2);
+        console.log(str);
+    }());
+    //沙箱
+    (function () {
+        // console.log(str);     //里面和外面的变量互相不会冲突，
+        var str="小红喜欢小明";// 里面可以访问外面的变量，但是外面不可以访问里面的变量
+        str=str.substr(2);
+        console.log(str);
+    }());
+
+</script>
+<input type="button" id="btn" value="点击弹框" />
+<script>
+    (function () {
+        document.getElementById("btn").onclick=function () {
+            alert("被点击了");
+        };
+    }());
+</script>
+</body>
+</html>

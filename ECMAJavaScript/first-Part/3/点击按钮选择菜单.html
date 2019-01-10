@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../2/0common.js"></script>
+</head>
+<body>
+<input type="button" value="点菜" id="but" />
+<select name="" id="ss">
+    <option value="1">佛跳墙</option>
+    <option value="2">清蒸鱼</option>
+    <option value="3">红烧肉</option>
+    <option value="4" id="op">宫爆鸡丁</option>
+    <option value="5">红烧茄子</option>
+</select>
+<script>
+    my$("but").onclick=function () {
+        my$("op").selected=true;
+    }
+</script>
+</body>
+</html>

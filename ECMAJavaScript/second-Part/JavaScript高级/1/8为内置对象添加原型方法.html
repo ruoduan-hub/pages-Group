@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var arr=new Array(10,20,30,);
+    // arr.join("|");
+    // console.dir(arr);
+
+    // var str=new String("二和文化，eg的");
+    // str.indexOf("和");
+    // console.dir(str);
+
+
+    // var dt=new Date();
+    // dt.getFullYear();
+    // console.dir(dt);
+
+    //实例中的方法如果没有,去创建该实例对象的构造函数的原型对象中找
+
+    //我们能否为系统的对象的原型中添加方法,相当于在改变源码
+    //我希望字符串中有一个倒序字符串的方法
+
+    //这2个方法的点就在于方法内this，这里的this代表的是实例对象---也就是我们后来创建的对象需要去调用这个方法的对象
+    String.prototype.myReverse = function () {
+        for (var i = this.length - 1; i >= 0; i--) {//这里的this表示实例对象----str
+            console.log(this[i]);
+        }
+    };
+    var str = "123456";
+    str.myReverse()//6 5 4 3 2 1 倒叙依次打印
+
+    //为Array内置对象原型添加方法
+    Array.prototype.mySort = function () {//排序
+        for (var i=0;i<this.length;i++){
+            for (var j=0;j<this.length;j++){
+                if (this[j]<this[j+1]){
+                    var temp=this[j];
+                    this[j]=this[j+1];
+                    this[j+1]=temp;
+                }
+            }
+        }
+    };
+    var arr=[1,9,7,3,8,10,84,96];
+    arr.mySort();
+    console.log(arr);//(8) [96, 84, 10, 9, 8, 7, 3, 1]
+
+    //为字符串添加打招呼的方法
+    String.prototype.sayHi=function () {
+      console.log(this+"你好啊~！")
+    };
+    var str="小明";
+    str.sayHi();
+
+</script>
+
+</body>
+</html>

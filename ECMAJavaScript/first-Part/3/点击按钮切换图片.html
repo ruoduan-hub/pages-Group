@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" id="btn" value="点击切换图片" />
+<img src="../images/5.jpg" alt="" id="im" />
+<script>
+    // document.getElementById("btn").onclick=function () {
+    //     document.getElementById("im").src="../images/6.jpg";
+    // };
+    // 函数封装后：
+    function my$(id){
+        return document.getElementById(id);
+    };
+    my$("btn").onclick=function () {
+        my$("im").src="../images/6.jpg";
+    };
+
+
+</script>
+</body>
+</html>

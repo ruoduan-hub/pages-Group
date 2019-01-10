@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function createObject(name,age) {//定义来一个方法，这方法的作用就是创建一个对象；
+        //一次性创建多个对象，把对象封装到一个函数中；
+        var obj=new Object();//第一个参数是姓名，第二个参数是年龄；
+        //添加属性
+        obj.name=name;
+        obj.age=age;
+        //添加方法
+        obj.sayHi=function () {
+            console.log("爱列哈些哟我叫："+this.name+"今年"+this.age+"岁")//this. 表示当前里面（当前里面这name和age）
+        };
+        return obj;//返回这对象
+    }
+    //创建人的对象；
+    var per1= createObject("小明",18);
+    var per2=createObject("小红",20);
+    per1.sayHi();
+    per2.sayHi();
+    console.log(per1.name);
+
+
+
+
+
+</script>
+</body>
+</html>

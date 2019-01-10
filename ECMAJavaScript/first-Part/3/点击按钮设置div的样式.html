@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../2/0common.js"></script>
+</head>
+<body>
+<input type="button" value="点击切换样式" id="btn" />
+<div id="dv"></div>
+<script>
+    my$("btn").onclick=function () {
+        my$("dv").style.width="200px";
+        my$("dv").style.height="150px";
+        my$("dv").style.backgroundColor="pink"
+    }
+</script>
+<style>
+    #dv1{
+        width: 200px;
+        height: 150px;
+        background-color: deeppink;
+    }
+</style>
+<input type="button" id="btn1" value="隐藏" />
+<!--<input type="button" id="btn2" value="点击显示div" />-->
+<div id="dv1"></div>
+<script>
+    //点击按钮隐藏div
+    // my$("btn1").onclick=function () {
+    //     my$("dv1").style.display="none";
+    // };
+    // my$("btn2").onclick=function () {
+    //     my$("dv1").style.display="block"
+    // }
+
+    //优化版
+    //根据id获取按钮，注册点击事件，添加事件处理函数
+    my$("btn1").onclick=function () {
+        if (this.value=="隐藏"){
+            //判断当前点击的按钮value的属性值
+            my$("dv1").style.display="none";//隐藏
+            this.value="显示";
+        } else if (this.value="显示"){
+            my$("dv1").style.display="block";//显示
+            this.value="隐藏";
+        }
+    }
+</script>
+
+
+
+</body>
+</html>

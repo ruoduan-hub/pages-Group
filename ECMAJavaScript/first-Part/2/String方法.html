@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * .slice()
+     *.split(",",3)  ,是分割的标识；分割几个从左到右
+     *.substr(开始的位置，个数)返回截取后新的字符串，第二个位置可不写表全部
+     *.substring(开始的位置，长度); 第二个位置可不写表全部
+     * .toLocaleLowerCase()&&.toLowerCase();转小写
+     * .toUpperCase()&&toLocaleUpperCase()；转大写
+     * .trim() 切除字符串两端的空格
+     */
+
+    var str = "为1郭明敬35454清关费";
+    str = str.slice(3, 10);//明敬35454
+    console.log(str);//从索引3开始提取，提取到索引10的前一个，返回这个提取的字符串
+
+    var str = "习近平,胡锦涛,邓小平,江泽民,周恩来"
+    var arr = str.split(",", 3);//,是分割的标识；分割几个从左到右
+    for (var i = 0; i < arr.length; i++) {
+        console.log(arr[i]);//习近平；胡锦涛；邓小平；
+    }
+
+    var str = "哦文化馆个哦问我饿问过";
+    str = str.substr(3, 5);
+    console.log(str);//馆个哦问我
+
+    var str = "哦文化馆个哦问我饿问过";
+    str = str.substring(3, 5);
+    console.log(str);//馆个 这个是开始和长度
+
+    var str = "ROKHRPIUFB";
+    //str=str.toLocaleLowerCase();//转小写
+    str = str.toLowerCase();//转小写
+    console.log(str);//rokhrpiufb
+
+    var str = "macbookpro"
+    //str=str.toLocaleUpperCase();//转大写
+    str = str.toUpperCase();
+    console.log(str);//MACBOOKPRO
+
+    var str = "    是的改革      ";
+    str = str.trim()
+    console.log(str);
+
+    /*****************************************************************************/
+    //案例1、
+    var str = "床前明月光，疑是地上霜";
+    var key = "明月";
+    //先获取要截取字符串的索引位置
+    var index = str.indexOf(key);
+    //从指定位置开始截取，截取全部
+    str = str.substr(index);
+    console.log(str);
+    //案例2、找出字符串所有o的位置
+    var str2 = "wlolomglmogwegloen;lomoweg";
+    var index = 0;
+    var key = "o";
+    while ((index = str2.indexOf(key, index)) != -1) {
+        console.log(index);
+        index += key.length;
+    }
+
+
+    //3、找到每个字符串中每个字符串出现了多少次
+    //逻辑：把字符串全部转换为小写（大写），用一个对象来储存字母和次数；用键值对的方式来表达
+    //键值对来储存和表达通过for循环吧每个字母遍历出来储存到键中，再判断键的出现次数得出值
+    //最后遍历对象实现每个字符串中每个字符串出现了多少次的效果
+    var str3 = "WwwETGrher524werg@@sa/nblko";
+    str3 = str3.toLowerCase();//第一步:转小写
+    //第二步:创建一个空对象,目的:把字母作为键,次数作为值
+    var obj = {};
+    //第三步,遍历字符串,获取每个字母
+    for (i = 0; i < str3.length; i++) {
+        //判断obj这个对象中有没有这个字母(字母---键)
+        var key = str3[i];//每个字母
+        console.log(key);
+        if (obj[key]) {
+            obj[key]++;//对象有这个字母
+        } else {
+            obj[key] = 1;
+        }
+    }
+    //遍历对象,显示每个字母的次数
+    for (var key in obj) {
+        console.log(key + "这个字母出现了" + obj[key] + "次");
+    }      //对象中没有这个字母,那就把字母加到对象中,并且给这个字母一个出现的次数,默认1次
+
+
+    // var obj={
+    //     sex:"男"
+    // };
+    // if(obj["sex"]){
+    //     console.log("有")
+    // }else {
+    //     console.log("没有")
+    // }
+
+</script>
+</body>
+</html>

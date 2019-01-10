@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /**
+     *实例方法---->必须通过new方式创建对象（实例对象）来调用方法
+     * 静态方法--->直接通过大写的构造函数名字来调用方法（直接通过大写的对象名字来调用）
+     *
+     * 字符串的常用属性：
+     * .length
+     * .charAt(索引):返回值是索引位置的字符，超出为空，不填写默认0
+     * String.fromCharCode(数字值，多个) 静态 方法返回使用指定的Unicode值序列创建的字符串。
+     * str.concat(string2, string3[, ..., stringN])concat 方法将一个或多个字符串与原字符串连接合并，
+     * 形成一个新的字符串并返回。 concat 方法并不影响原字符串。
+     * .indexOf(要找的字符串，从哪个索引开始（也可以不填））；没找到返回-1
+     * .replace(原来的字符串,新的字符串)用来替换字符串的
+     */
+
+
+    var str = "abc123";
+    var result = str.charAt(2);
+    console.log(result);//c
+
+
+    var result = String.fromCharCode(65, 66, 67);
+    //由于 fromCharCode 是 String 的静态方法，所以应该像这样使用：String.fromCharCode()，
+    // 而不是作为你创建的 String 对象的方法。
+    console.log(result);
+
+    var str = "你好";
+    result = str.concat("吴彦祖", "，", "彭于晏");
+    console.log(result);
+
+    var str = "个无故把无还未公布";
+    var index = str.indexOf("无", 2);//4
+    var index = str.lastIndexOf("无");//4 //lastIndexOf 他是从后往前找
+    //找5这个字符串并返回索引，只找一次，第二个人位置表示从哪个索引开始找，前面的不管；没找到返回-1；
+    console.log(index);
+
+    var str = "我还没有女朋友";
+    if (str.indexOf("还没有") != -1) {
+        str = str.replace("还没有", "找到了");
+    } else {
+        console.log("不存在");
+    }
+    console.log(str);
+
+
+</script>
+</body>
+</html>

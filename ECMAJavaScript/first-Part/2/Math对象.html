@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dv{
+            background-color: pink;
+            width: 300px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="dv">随机变化颜色</div>
+
+<script>
+    // //具体Math的方法和数据详见MDN
+    // //Math.trunc() 方法会将数字的小数部分去掉，只保留整数部分
+    // console.log(Math.trunc(6.666));//6
+    // console.log(Math.trunc(3.846544));//3
+    // //取绝对值
+    // console.log(Math.abs(-86.3))//86.3
+    // console.log(Math.abs(3.14))//3.14
+    // console.log(Math.abs(-6))//6
+    // //最大值
+    // console.log(Math.max(10,20,30,40,100,-3));//100
+    // //最小值
+    // console.log(Math.min(10,20,30,40,100,-3));//-3
+
+    //随机产生一个十六进制的颜色值
+    //封装成一个函数
+    function getColor() {
+        var str = "#";
+        //一个十六进制的数组
+        var arr = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+        for (var i = 0; i < 6; i++) {
+            //随机产生一个数组内索引范围的数字，每一个数字都是一个索引；
+            var num = parseInt(Math.random() * 16);
+            str += arr[num];
+        }
+        return str;
+    }
+
+    console.log(getColor());
+    //记载页面加载事件
+    window.onload=function () {
+        //在文档中通过id属性的值查找这个元素(标签).设置该标签的背景颜色
+        document.getElementById("dv").style.backgroundColor=getColor();
+        //console.log(getColor());
+    };
+</script>
+</body>
+</html>

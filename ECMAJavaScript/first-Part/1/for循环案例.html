@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    // alert()//弹出框
+    // console.log()//控制台
+    // document.write("<a href='http://www.baidu.com'>百度</a>")//在页面中输出
+</script>
+
+
+<script>
+
+    //画星星
+    // document.write("★");
+    // document.write("★");
+    // document.write("★");
+    // document.write("★");
+    // document.write("★");
+    // document.write("★");
+    // document.write("<br>");
+    // document.write("☆");
+
+    // for (var i=0;i<5;i++){
+    //     document.write("★");
+    // }
+    // document.write("<br />");
+    // for (var i=0;i<5;i++){
+    //     document.write("☆");
+    // }
+    // document.write("<br />");
+    // for (var i=0;i<5;i++){
+    //     document.write("★");
+    // }
+
+
+    for (var i = 0; i < 10; i++) {
+        //这个循环是控制行数
+        for (var j = 0; j < 5; j++) {
+            //控制每一行多少个
+            document.write("★");
+        }
+        document.write("<br />");
+    }
+</script>
+
+<script>
+
+    for (var i = 0; i <= 5; i++) {
+        for (var j = 0; j <= i; j++) { //这里的j<=i，星星的个数随着行数的增加而增加
+            document.write("☆");
+        }
+        document.write("<br />");
+    }
+</script>
+</body>
+</html>

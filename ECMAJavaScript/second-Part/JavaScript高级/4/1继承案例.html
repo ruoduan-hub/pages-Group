@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Animal(name,age,sex,) {
+        this.name=name;
+        this.age=age
+        this.sex=sex;
+    }
+    Animal.prototype={
+        construct:Animal,
+        color:"黄色",
+        eat:function () {
+            console.log("动物的吃")
+        }
+    };
+
+    function Dog(age,sex,name) {
+        //借用构造函数
+      Animal.call(this,age,sex,name);//第一个空要加this
+    };
+    //改变原型指向，为了继承方法
+    Dog.prototype=new Animal();
+    Dog.prototype.wangwang=function () {
+        console.log("汪汪汪")
+    };
+
+    var dog1=new Dog("1","女","小白");
+    console.log(dog1.age);
+    console.log(dog1.sex);
+    console.log(dog1.name);
+    console.log(dog1.color);
+    dog1.eat();
+    dog1.wangwang();
+    var dog2=new Dog("2","男","小花");
+    console.log(dog2.name+dog2.age+dog2.sex);
+    dog1.eat();
+    dog1.wangwang();
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        #dv{
+            border: 2px solid red;
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="创建一个元素" id="btn" />
+<div id="dv"></div>
+
+<script>
+    //有则删除，无则创建
+    //1 有则删除
+// my$("btn").onclick=function () {
+//     //判断div中有没有这个按钮有就删除
+//     //判断这个按钮的子元素是否存在
+//     if (my$("btn1")){
+//         my$("dv").removeChild(my$("btn1"));
+//     }
+//     var obj=document.createElement("input");
+//     obj.id="btn1";
+//     obj.value="按钮";
+//     obj.type="button";
+//     my$("dv").appendChild(obj);
+// };
+
+    //2 无则创建
+    my$("btn").onclick=function () {
+        if (!my$("btn1")){//如果没有就为true
+            var obj=document.createElement("input");
+             obj.id="btn1";
+             obj.value="按钮";
+             obj.type="button";
+             my$("dv").appendChild(obj);
+        }
+    };
+
+</script>
+</body>
+</html>

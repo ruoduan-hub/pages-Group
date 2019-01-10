@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<input type="button" value="点击渐变" id="btn" />
+<div id="dv" style="background-color:deeppink;width: 300px;height: 200px;"></div>
+
+<script>
+    var opacity=10;//让透明度的数值变成10倍，避免小数的计算
+    my$("btn").onclick=function () {
+     var timeId= setInterval(function () {
+        opacity--;
+        if (opacity<=0){
+            clearInterval(timeId);//清理定时器
+        }
+        //设置div的透明度
+        my$("dv").style.opacity=opacity/10;
+      },200)
+    };
+</script>
+</body>
+</html>

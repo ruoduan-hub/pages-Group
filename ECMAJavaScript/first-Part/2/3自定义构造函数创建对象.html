@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义构造函数创建对象</title>
+</head>
+<body>
+<script>
+    //自定义构造函数创建对象，我要自定义一个构造函数，自定义构造函数，创建对象；
+    //函数和构造函数的区别：名字不是大写（首字母大写）；
+
+    function Person(name, age) {//自定义来一个构造函数
+        this.name = name;
+        this.age = age;
+        this
+        this.sayHi = function () {
+            console.log("我叫" + this.name + "今年" + this.age + "岁")
+        };
+    }
+
+    /*自定义构造函数创建对象做了4件事
+    *1.在内存中开辟空间，储存创建新的对象
+    *2.把this 的值设置为当前对象
+    *3.设置对象的属性和方法的值
+    *4.把this这个对象返回
+    * */
+    //创建一个obj对象
+    var obj = new Person("小明", 18);
+    var obj1 = new Person("小红", 23);
+    obj.sayHi();
+    obj1.sayHi();
+    console.log(obj instanceof Person);//真 true (instanceof)判断对象类型 自定构造函数可以判断；objet属于系统的不可以
+
+
+    //创建一个狗的构造函数
+    function Dog(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.sayHi = function () {
+            console.log("我叫" + this.name + "今年" + age + "岁" + this.sex + "汪汪汪")
+        };
+    }
+
+    var dog1 = new Dog("啊黄", "3", "母的");//创造一个Dog的构造函数
+    dog1.sayHi();
+    var dog2 = new Dog("大白", "2", "公的");
+    dog2.sayHi();
+    console.log(dog1 instanceof Dog);//判断dog1这个对象不是是Dog构造函数 true
+
+    console.log(dog2 instanceof Person);//fales ；
+</script>
+</body>
+</html>

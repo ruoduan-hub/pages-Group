@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="点击选择性别" id="sex" />
+<input type="radio" name="sex" value="1" id="man"/>男
+<input type="radio" name="sex" value="2" />女
+<input type="radio" name="sex" value="3" />保密
+<script>
+    //点击选择性别后选到男
+    function my$(id) {
+       return document.getElementById(id)
+    };
+    my$("sex").onclick=function () {
+        my$("man").checked=true;
+    }
+</script>
+<br>
+<input type="button" value="点击选择兴趣" id="hobby"/>
+<input type="checkbox" value="1" name="xingqu" id="ck1"/>打篮球
+<input type="checkbox" value="2" name="xingqu" />打羽毛球
+<input type="checkbox" value="3" name="xingqu" />踢足球
+<input type="checkbox" value="4" name="xingqu" id="ck2"/>游泳
+<input type="checkbox" value="5" name="xingqu" />打游戏
+<script>
+    my$("hobby").onclick=function () {
+        // my$("ck1").checked=true;
+        // my$("ck2").checked=true;
+        var xq=document.getElementsByName("xingqu");
+        //利用Name这个属性来选择所有，.getElementsByName这个方法传回来的是一个数组需要遍历
+        for (var i=0;i<xq.length;i++){
+            xq[i].checked=true;
+        }
+    }
+</script>
+</body>
+</html>

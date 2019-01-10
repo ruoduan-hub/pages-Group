@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<a id="a1" href="https://www.baidu.com">百度</a>
+<script>
+    document.getElementById("a1").onclick=function () {
+        alert("后面链接不再跳转");
+        return false;
+    }
+</script>
+<a href="../images/1.jpg" id="ak"><img src="../images/1-small.jpg"title="点击图片查看大图"></a>
+<br><img src="" alt="" id="big">
+<script>
+    my$("ak").onclick=function () {
+        my$("big").src=this.href;
+        return false;
+    };
+    //逻辑：定义一个a标签a标签里面是一张小图而a标签的跳转地址（href）是大图地址；在a标签下面给一个img标签
+    //用来显示大图；return false 组织标签跳转 JavaScript 把a的href赋值给img；从而达成点击小图在下面显示
+    //大图的效果
+</script>
+</body>
+</html>

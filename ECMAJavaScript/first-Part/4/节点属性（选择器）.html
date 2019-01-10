@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <script>
+        /*节点属性：（可以使用标签--元素.出来，可以使用属性节点.出来，文本节点.出来）
+        *nodeType 节点类型： 1--标签 2--属性  3---文本
+        *nodeName  节点名字： 标签节点--大写的标签名字，  属性节点---小写的属性名字，  文本节点 ---#text
+        *nodeValue  节点值：标签节点---null， 属性节点---属性值，  文本节点---文本内容
+        * **/
+    </script>
+</head>
+<body>
+<div id="dv">
+   <span>这是div中的第一个元素span标签</span>
+    <p>这是div中第二个元素，第一个p标签</p>
+    <ul id="uu">
+        <li>灵芝</li>
+        <li>鹿茸</li>
+        <li id="three">燕窝</li>
+        <li>熊掌</li>
+        <li>鱼翅</li>
+    </ul>
+</div>
+
+<script>
+    //12行代码：都是获取节点和元素的
+    var ulobj=my$("uu");
+    //父级节点
+    console.log(ulobj.parentNode);
+    //父级元素
+    console.log(ulobj.parentElement);
+    //子节点
+    console.log(ulobj.childNodes);
+    //子元素
+    console.log(ulobj.children);
+console.log("===================================================================");
+    //第一个子节点
+    console.log(ulobj.firstChild); //----------ie8凡是节点的都变成一个子元素
+    //第一个子元素
+    console.log(ulobj.firstElementChild);//------ie8凡是元素的都变成undefined
+    //最后一个子节点
+    console.log(ulobj.lastChild);
+    //最后一个子元素
+    console.log(ulobj.lastElementChild);
+    //某个元素的前一个兄弟节点
+    console.log(my$("three").previousSibling);
+    //某个元素的前一个兄弟元素
+    console.log(my$("three").previousElementSibling);
+    //某个元素的后一个兄弟节点
+    console.log(my$("three").nextSibling);
+    //某个元素的后一个兄弟元素
+    console.log(my$("three").nextElementSibling);
+
+
+    //总结:凡是获取节点的代码在谷歌和火狐得到的都是  相关的节点
+    //凡是获取元素的代码在谷歌和火狐得到的都是   相关的元素
+    //从子节点和兄弟节点开始,凡是获取节点的代码在IE8中得到的是元素,获取元素的相关代码,
+    // 在IE8中得到的是undefined----元素的代码,iE中不支持
+
+
+
+    // //获取div
+    // var dvobj=document.getElementById("dv");
+    // //获取的是属性节点
+    // var node=dvobj.getAttributeNode("id");
+    // console.log(dvobj.nodeType+"==="+node.nodeName+"==="+node.nodeValue);
+
+
+
+
+    // var dvobj=document.getElementById("dv");
+    // //子节点
+    // console.log(dvobj.childNodes);//7个子节点
+    // //子元素
+    // console.log(dvobj.children);//3个子元素 span p ul
+</script>
+<script>
+    // var ulobj=my$("uu");
+    // //ul父级节点
+    // console.log(ulobj.parentNode);//他们2个相同
+    // //ul的父级元素
+    // console.log(ulobj.parentElement);//他们2个相同
+    // console.log(ulobj.parentNode.parentNode);//body
+    // console.log(ulobj.parentNode.parentNode.parentNode);//html
+    // console.log(ulobj.parentNode.parentNode.parentNode.parentNode);//#document
+    //
+    // console.log(ulobj.parentNode.nodeType);//1
+    // console.log(ulobj.parentNode.nodeName);//DIV
+    // console.log(ulobj.parentNode.nodeValue);//null
+</script>
+</body>
+</html>

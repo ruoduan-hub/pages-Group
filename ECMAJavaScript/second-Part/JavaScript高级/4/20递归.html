@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //函数中用调用函数自己，此时就是递归，递归一定要有结束条件
+
+    var i=0;
+    function f1() {
+        i++;
+        if (i<5){
+            f1();
+        }
+        console.log("从前有座山，山里有个庙，庙里有个老和尚给小和尚讲故事：");
+    };
+    f1();
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+
+<script>
+    /**元素创建---为了提高用户体验
+     * 元素创建的三种方式
+     *1、document.write（"标签的代码以及内容"）;
+     *2、对象.innerHTML="标签及代码";
+     *3、document.createElement（"标签的名字"）；
+     * */
+</script>
+<input type="button" id="btn" value="点击创建元素" />
+<div id="dv" style="width: 300px;height: 160px;border: 2px dashed deepskyblue"></div>
+<script>
+    //document.write的方式
+    // document.getElementById("btn").onclick=function () {
+    //     document.write("<p>创建一个p标签</p>");
+    // }//缺陷：如果是在页面加载完毕后创建元素，此时通过这种方式创建元素，那么页面上存在的所有内容全部被清空
+    // //一般用于页面加载时使用
+</script>
+
+<script>
+    // //点击按钮在div中创建一个标签 对象.innerHTML="标签代码及内容"
+    // my$("btn").onclick=function () {
+    //     my$("dv").innerHTML="<p>创建一个p标签</p>";
+    //     //需要放在一个父级元素里面
+    // }
+</script>
+
+<script>
+        //1、创建元素
+        //document.createElement("标签名字")//返回对象
+        //2、把元素追加到父级元素中
+        my$("btn").onclick=function () {
+            //创建元素
+            var pobj= document.createElement("p");
+            setInnerText(pobj,"这是一个p标签");
+            //追加到父级别元素中
+            document.getElementById("dv").appendChild(pobj);
+        }
+
+</script>
+</body>
+</html>

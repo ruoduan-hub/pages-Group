@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #dv{
+            width: 200px;
+            height: 150px;
+            background-color: deeppink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn1" value="移动400px"/>
+<input type="button" id="btn2" value="移动800px"/>
+<div id="dv"></div>
+
+<script>
+
+    my$("btn1").onclick = function () {
+        animate(my$("dv"), "height",400);
+    };
+    my$("btn2").onclick = function () {
+        animate(my$("dv"),"top" ,800)
+    };
+
+    //点击按钮获取元素的值
+    function getStyle(element,attr) {
+        return window.getComputedStyle?window.getComputedStyle(element,null)[attr]:element.currentStyle[attr];
+    };
+
+    //变速动画
+    function animate(element,attr, target) {
+        //清理定时器
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            //获取div的当前位置
+            var current =parseInt(getStyle(element,attr));
+            //div每次移动多少像素
+            var step = (target-current)/10;//11111111
+            step = step>0?Math.ceil(step):Math.floor(step);//1111
+            //每次移动的距离
+            current += step;
+            element.style[attr]=current+"px";
+            if (current==target){
+                //清理定时器
+                clearInterval(element.timeId);
+            }
+            //测试代码:
+            console.log("目标位置:"+target+"，当前位置:"+current+"，每次移动位置:"+step+"");
+        }, 20)
+    };
+</script>
+</body>
+</html>

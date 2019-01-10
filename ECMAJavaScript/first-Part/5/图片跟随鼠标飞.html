@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<img src="../images/sp.jpg"id="im" style="width: 30px;height: 21px; position: absolute">
+</body>
+<script>
+    document.onmousemove=function (e) {//IE8不支持
+      my$("im").style.left=e.pageX+"px";
+      my$("im").style.top=e.pageY+"px";
+      console.log(e);
+    };
+</script>
+</html>

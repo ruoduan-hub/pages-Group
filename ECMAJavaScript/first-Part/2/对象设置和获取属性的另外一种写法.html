@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function Person(name,age) {
+        this.name=name;
+        this.age=age;
+        this.sing=function () {
+            console.log("唯一")
+        };
+    }
+    var obj=new Person("王力宏",20);
+    // obj.sing();
+    // obj.name="周杰伦";
+    //另外一种方式
+    obj["name"]="张学友";
+    //使用这种方式[]中括号里面一定要加双引号写属性名和方法；不然结果就是：undefined
+    console.log(obj["name"]);
+    obj["sing"]();
+</script>
+</body>
+</html>

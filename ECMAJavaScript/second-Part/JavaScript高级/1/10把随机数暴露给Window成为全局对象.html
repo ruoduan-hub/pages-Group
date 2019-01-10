@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    (function (win) {//采用自调用构造函数的方式，面膜的分号一定不能省略---()();
+        //产生随机数
+        function Random() {
+            
+        };
+        //在原型对象上添加方法
+        Random.prototype.getRandom=function (min,max) {
+            return Math.floor(Math.random()*(max-min)+min);//向下去整的随机数
+                                            //最大值-最小值+最小值，这样做到可选随机数的区间
+        };
+        //把Random对象暴露给顶级对象Windows------>外部可以直接使用这个对象
+        win.Random=Random;
+    })(window);
+
+    var rm=new Random();
+    console.log(rm.getRandom(0,5));
+</script>
+</body>
+</html>

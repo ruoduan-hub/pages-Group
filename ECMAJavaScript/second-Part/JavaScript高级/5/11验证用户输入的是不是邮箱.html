@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+请输入邮箱地址：<input type="text" id="email" />*
+<script>
+    //获取文本框失去焦点事件
+    document.getElementById("email").onblur=function () {
+        //判断这个文本框中输入的是不是邮箱地址
+        var reg=/^[a-zA-Z0-9_.-]+[@][a-zA-Z0-9_.-]+([a-zA-Z]+){1,2}$/
+        if (reg.test(this.value)){
+            this.style.border="1px solid green";
+        }else {
+            this.style.border="1px solid red";
+        }
+    };
+</script>
+</body>
+</html>

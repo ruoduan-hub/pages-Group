@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="button" value="按钮" id="btn" />
+<p id="p1">文字段落</p>
+
+<script>
+    //点击按钮修改p标签的显示内容
+
+    //凡是成对的标签，中间的文本内容，设置的时候都使用.innerText这个属性的方式
+
+    //根据id获取按钮，为按钮注册点击事件，添加事件处理函数
+    document.getElementById("btn").onclick=function () {
+        //根据id获取p标签，设置内容
+        document.getElementById("p1").innerText="点击之后的文字";
+    }
+</script>
+
+<a href="" id="a1">未点击</a>
+<input type="button" value="按钮1" id="btn1" />
+<script>
+    // document.getElementById("btn1").onclick=function () {
+    //     document.getElementById("a1").innerText="点击链接转到百度";
+    //     document.getElementById("a1").href="https://www.baidu.com";
+    // }
+    //优化后
+    document.getElementById("btn1").onclick=function () {
+        var obj=document.getElementById("a1");
+        obj.innerText="点击转到鸠摩搜书";
+        obj.href="https://www.jiumodiary.com/";
+    }
+</script>
+
+<input type="button" value="按钮按钮" id="btn2"  />
+<div id="dv1">
+    <p>内容1</p>
+    <p>内容2</p>
+    <p>内容3</p>
+</div>
+<div id="dv2">
+    <p>不改变的内容</p>
+    <p>不改变的内容</p>
+    <p>不改变的内容</p>
+</div>
+<script>
+    //document.getElementsByTagName("标签的名字");返回的是一个伪数组
+    //无论获取的是一个标签还是多个标签，最终都在数组中储存，这行代码的返回值就是一个数组
+    document.getElementById("btn2").onclick=function () {
+        //根据标签名字获取标签
+       // var pObj=document.getElementsByTagName("p");
+        var pObj=document.getElementById("dv1").getElementsByTagName("p");
+        //循环遍历这个伪数组
+        for (i=0;i<pObj.length;i++){
+            pObj[i].innerText="改变的p内容"
+        }
+    };
+</script>
+</body>
+</html>

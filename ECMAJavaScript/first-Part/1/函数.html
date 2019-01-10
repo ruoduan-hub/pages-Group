@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+
+    //形参：函数在定义的的时候小括号里面的叫形参
+    // 实参：函数在调用的时候小括号里面的叫实参，实参可是数值也可以是变量
+
+    // function consoleSum(x,y) {//定义函数和形参
+    //     var sum=x+y;//计算和第一个功能
+    //     console.log(sum);//输出值
+    // }
+    // var sum1=parseInt(prompt("请输入第一个数字"));
+    // var sum2=parseInt(prompt("请输入第二个数字"));
+    // consoleSum(sum1,sum2);//调用函数和定义实参
+
+    //ste设置
+    //get获取
+    //函数的返回值：在函数内部有return的关键字，并且在关键字后面有内容，这内容被返回了
+    //当函数调用时需要这个返回值，那么就定义变量接受，即可；
+
+    function getSum(x, y) {
+        var sum = x + y;
+        return sum;//把和的值返回
+    }
+
+    //函数调用
+    var result = getSum(10, 20);
+    console.log("和是" + (result + 30));
+
+    //求1-n的所有数字的和
+    function geteverySum(n, m) {
+        var sum = 0;
+        for (var i = n; i <= m; i++) {
+            sum += i;
+        }
+        return sum;
+    }
+
+    console.log(geteverySum(1, 100));
+
+    //定义一个计算圆形面积的function（函数）πr²
+    function roundSape(r) {
+        return Math.PI * r * r;//Math.PI 就是π
+    }
+
+    console.log(roundSape(10));
+
+    //求2个数中的最大值
+    function getMax1(x,y){
+       return x>y?x:y;
+    }
+    console.log("这2个数字最大的是："+getMax1(7,9));
+    //求3个数中最大值
+    function getMax2(x,y,z){
+        return x>y?(x>z?x:z):(y>z?y:z);
+    }
+    console.log(getMax2(10,99,999));
+    
+
+</script>
+</body>
+</html>

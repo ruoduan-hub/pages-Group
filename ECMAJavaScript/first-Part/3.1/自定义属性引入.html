@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<ul>
+    <li score="10">小明成绩</li>
+    <li score="20">小新成绩</li>
+    <li score="30">小红成绩</li>
+    <li score="40">小蓝成绩</li>
+    <li score="50">小黄成绩</li>
+</ul>
+<script>
+    //.getAttribute（"自定义属性的名字"） 专门获取自定义属性
+    //自定义的属性是score（成绩）
+    //获取所有的li标签
+    var list=document.getElementsByTagName("li");
+    for (var i=0;i<list.length;i++){
+        //为所有的li注册点击事件
+        list[i].onclick=function () {
+            alert(this.innerText+"是:"+this.getAttribute("score"));
+        }
+    }
+</script>
+</body>
+</html>

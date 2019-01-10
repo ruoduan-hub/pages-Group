@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        #dv{
+            width: 600px;
+            height: 600px;
+            border: 2px solid rebeccapurple;
+            background-color: black;
+            font-size: 80px;
+            color: yellow;
+        }
+        #dv span{
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="开始" id="btn" />
+<input type="button" value="结束" id="btn1" />
+<div id="dv"></div>
+<script>
+    var timeid;
+    my$("btn").onclick=function () {
+       timeid=setInterval(function () {
+          my$("dv").innerHTML="<span>★</span>";
+          var x=parseInt(Math.random()*600+1);
+          var y=parseInt(Math.random()*600+1);
+          my$("dv").firstElementChild.style.left=x+"px";
+          my$("dv").firstElementChild.style.top=y+"px";
+      },50)
+    };
+    my$("btn1").onclick=function () {
+        clearInterval(timeid);
+    };
+</script>
+</body>
+</html>

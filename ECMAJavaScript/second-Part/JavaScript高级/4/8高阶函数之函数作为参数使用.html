@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function f1(fn) {
+        console.log("f1的函数")
+        fn();//此时fn当成一个参数来使用
+    };
+    //fn是参数最后作为函数使用了，函数可以作为参数使用
+    //传入匿名函数
+    f1(function () {
+       console.log("匿名函数")
+    });
+
+    //命名函数
+    function f2() {
+        console.log("我是命名函数");
+    };
+
+    f1(f2);
+    //在函数作为参数使用的时候不可以加括号，不然就报错，加括号就表示调用了之后的返回值，他没有返回值
+
+
+    //在定时器中调用
+    function f3(fn) {
+        setInterval(function () {
+            console.log("定时器开始");
+            fn();
+            console.log("定时器结束");
+        },1000)
+    };
+
+    f3(function () {
+        console.log("函数")
+    })
+</script>
+</body>
+</html>

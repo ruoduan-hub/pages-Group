@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // //apply和call的使用
+    // //作用：可以改变this的指向
+    // /*
+    // * f1.apply(null,[100,200]);//第一个参数是对象，第二个参数是数组
+    // *
+    // * */
+    //
+    // function f1(x,y) {
+    //     console.log("结果是："+(x+y)+this);
+    // };
+    // f1(1,2);//3[object Window]
+    // //此时的f1实际上是当做对象来使用，对象可以调用方法
+    // //apply和call 也是函数的方式来调用
+    // //f1.apply();//NaN[object Window]
+    // //f1.call();//NaN[object Window]
+    // console.log("=========================");
+    // //f1.apply(null);//NaN[object Window]
+    // //f1.call(null);//NaN[object Window]
+    // //apply和call方法如果没有传入参数，或者传入的是null，那么调用改方法的函数对象中的this默认就是window//
+    // // f1.apply(null,[100,200]);//第一个参数是对象，第二个参数是数组
+    // // f1.call(null,100,200);
+    // var obj={
+    //     age:10,
+    //     name:"小明"
+    // };
+    // f1.apply(obj,[10,20]);//30[object Object]
+    // f1.call(obj,10,20);//30[object Object]
+    //apply和call改变了this的指向，本来属于widow变成了obj这个对象下的方法了
+    // console.dir(obj);__proto__下面没有f1这个方法
+
+
+    function Person(name,sex) {
+      this.name=name;
+      this.sex=sex;
+    };
+    Person.prototype.sayHi=function (x,y) {
+      console.log("你好啊:"+this.name)
+        return x+y;
+    };
+    var per=new Person("小明","男");
+    per.sayHi();
+
+    console.log("------------");
+
+    function Student(name) {
+      this.name=name;
+    };
+    var stu=Student("小红");
+    per.sayHi.apply(stu,[10,20]);//改变了this的指向
+    per.sayHi.call(stu,10,20);
+    console.log("------------");
+    var result1=per.sayHi.apply(stu,[10,20]);
+    var result2=per.sayHi.call(stu,30,20);
+
+    //如果有返回值的话，声明变量接收
+
+    console.log(result1);
+    console.log(result2);
+
+</script>
+</body>
+</html>

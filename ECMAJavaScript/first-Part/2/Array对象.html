@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="0common.js"></script>
+    <!--引入js文件，解决.forEach 版本不兼容问题-->
+</head>
+<body>
+<script>
+/*
+* Array.siArray(对象)-------->判断这个对象是不是数组
+* instanceof关键字
+* .concat（数组1，数组2，...）  多个数组组合成新的数组
+* .every(函数)--返回值是boolean（布尔）类型，函数作为参数使用，函数中有三个参数，都一个参数是元素的值
+* 第二个参数是索引值，第三个参数是原来的数组（没用）
+* 如果这个数组中的每个元素都符合条件，最后才返回true
+* .filter(函数) 返回的每一个数组都符合条件的组成一个新数组
+*
+* .push(值); 把值追加到数组中，加到末尾---------------->返回值是插入后的长度
+* .pop();    删除元素中最后的这个值------>返回值就是删除的这个值
+* .shift();  删除元素中第一个的这个值------>返回值就是删除的这个值
+* .unshift(10); 把值追加到数组中，加到开头---------------->返回值是插入后的长度
+* .forEach(function (ele,index,array)---------->遍历数组
+* .indexOf(7); 搜索元素返回索引值；没有就返回-1
+* .join("|");----->返回一个字符串，在元素之间插入一个字符串
+* .map（函数）；数组中每个元素都要执行这个函数，执行之后把新的全部结果放在一个数组中
+* .reverse(); 反转 一个数组
+* .sort(函数) 排序，要使得sort 排序稳定要向里面添加一个方法详见MDN 根据需求选择；
+* .slice（开始的索引，结束的索引）；把截取后的数组的值返回不包含结束索引的值
+* .splice(开始的位置, 要删除的个数, '替换掉值');一把是用于删除数组中的元素或者是替换元素，或者是
+* 插入元素
+*
+*
+*
+*
+* */
+// arr1=[10,20,30,40,50];
+// arr2=[1,2,3,4,5];
+// arr3=[1,2,3,4,5];
+// console.log(arr1.concat(arr2,arr3));
+
+// let arr=[111,111,111,11];
+// //传元素的值和索引的值
+// let flag=arr.every(function (ele,index) {//判断数组的每个数组的长度是否大于2 返回boolean值
+//     //判断每个元素的值是否符合条件
+//     return ele.length>2//false
+// });
+// console.log(flag);
+
+// let arr4=[11,12,13,14,19];
+// let flag=arr4.every(function (ele,index) {
+//     return ele>10;
+// })
+//     console.log(flag);
+
+var arr=[1,20,130,1,50,1,30,1];
+var newArr=arr.filter(function (ele) {//------------>每个元素
+    return ele!==1;
+});
+console.log(newArr);
+
+var arr1=[10,20,30,40,50,60];
+arr1.push(100);
+console.log(arr1);
+
+var arr2=[1,2,3,4,5,6];
+arr2.pop();
+console.log(arr2);
+
+var arr3=[1,2,3,4,5,6];
+arr3.shift();
+console.log(arr3);
+
+var arr4=[9,8,7,6,5,4];
+arr4.unshift(10);
+console.log(arr4);
+
+
+var arrA=[10,20,30,];
+arrA.forEach(function (ele,index,array) {
+    console.log(ele+"==="+index)
+});
+
+var arrB=[6,7,8,9,3];
+index1=arrB.indexOf(7);
+console.log(index1);
+
+var arr=["小白","小红","小黄","小黑","小绿"];
+str=arr.join("|");
+console.log(str);
+
+var numbers=[1,4,9];
+var roots=numbers.map(Math.sqrt);//Math.sqrt是开方；
+console.log(roots);
+
+arr=[1,2,3,4,5,6];
+arr.reverse();
+console.log(arr);
+
+arrChaos=[1,8,351,7,6,66,26];//排序
+arrChaos.sort(function compare(a, b) {
+    if (a < b ) {           // 按某种排序标准进行比较, a 小于 b
+        return -1;
+    }
+    if (a > b ) {
+        return 1;
+    }
+    // a must be equal to b
+    return 0;
+});
+    console.log(arrChaos);
+
+var months = ['Jan', 'March', 'April', 'June'];
+months.splice(1, 0, 'Feb');
+// inserts at 1st index position
+console.log(months);
+// expected output: Array ['Jan', 'Feb', 'March', 'April', 'June']
+
+months.splice(4, 1, 'May');
+// replaces 1 element at 4th index
+console.log(months);
+// expected output: Array ['Jan', 'Feb', 'March', 'April', 'May']
+</script>
+</body>
+</html>

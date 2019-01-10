@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        #dv {
+            width: 300px;
+            height: 200px;
+            border: 2px solid deepskyblue;
+        }
+
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="点击添加元素">
+<div id="dv"></div>
+<script>
+    var names = ["张三", "李四", "王五", "赵六", "啊三", "啊四"];
+    my$("btn").onclick = function () {
+        var str = "<ul style='cursor: pointer'>";//添加小手
+        //根据循环创建对应对数的li
+        for (var i = 0; i < names.length; i++) {
+            str += "<li>" + names[i] + "</li>"
+        }
+        str += "</ul>"
+        my$("dv").innerHTML = str;
+        //代码执行到这里所有的li都已经被创建了
+        //添加li 的鼠标进入事件和鼠标移除事件让li高亮
+        var list = my$("dv").getElementsByTagName("li");
+        for (var i = 0; i < list.length; i++) {
+            //鼠标进入
+            list[i].onmouseover = function () {
+                this.style.backgroundColor = "yellow"
+            };
+            //鼠标离开
+            list[i].onmouseout = function () {
+                this.style.backgroundColor = "";
+            };
+        }
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        .cls{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="显示效果"/>
+<input type="button" id="btn1" value="显示效果"/>
+<span>1</span>
+<span class="cls">1</span>
+<p class="cls">2</p>
+<p>2</p>
+
+<script>
+    // 点击弹出对话框
+    // 根据选择器的方式选择元素
+    var btnobj = document.querySelector("#btn");//单个
+    btnobj.onclick=function () {
+      alert("啊哈哈，有变帅了") ;
+    };
+
+    var objs=document.querySelectorAll(".cls");//类选择器
+    for (i=0;i<objs.length;i++){
+        objs[i].style.backgroundColor="red";
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<ul id="u1">
+    <li>a</li>
+    <li>b</li>
+    <li>c</li>
+    <li>d</li>
+    <li>e</li>
+    <li>f</li>
+</ul>
+<script>
+    //获取所有的li
+    var list = my$("u1").getElementsByTagName("li");
+    for (i = 0; i < list.length; i++) {
+        list[i].onmouseover = function () {
+            this.style.backgroundColor = "red";
+        };
+        list[i].onmouseout = function () {
+            this.style.backgroundColor = "";
+        };
+    }
+</script>
+</body>
+</html>

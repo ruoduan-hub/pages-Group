@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img{
+            width: 200px;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<img src="../images/4.jpg" alt="" /><br>
+<img src="../images/5.jpg" alt="" /><br>
+<img src="../images/6.jpg" alt="" /><br>
+<script>
+    //点击每个图片弹出对话框
+    //根据标签名字获取图片标签，分别注册点击事件
+    var imgObj=document.getElementsByTagName("img");
+    //循环遍历数组，获取每个标签，添加点击事件
+    for (i=0;i<imgObj.length;i++){
+        imgObj[i].onclick=function () {
+            alert("被点了")
+        };
+    }
+</script>
+</body>
+</html>

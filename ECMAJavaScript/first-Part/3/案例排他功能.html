@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="没怀孕"/>
+<input type="button" value="没怀孕"/>
+<input type="button" value="没怀孕"/>
+<input type="button" value="没怀孕"/>
+<input type="button" value="没怀孕"/>
+<input type="button" value="没怀孕"/>
+<script>
+    //获取所有的按钮,分别注册点击事件
+    var btnobj = document.getElementsByTagName("input")//标签名字
+    //var btnobj = document.getElementsByName()//属性名字
+    //循环遍历所有的按钮
+    for (var i = 0; i < btnobj.length; i++) {
+        //为每个按钮都要注册点击事件
+        btnobj[i].onclick = function () {
+            //把所有的按钮的value值设置为默认的值:没怀孕
+            for (var j = 0; j < btnobj.length; j++) {
+                btnobj[j].value = "没怀孕";
+            }
+            //当前被点击的按钮设置为:怀孕了
+            this.value = "怀孕了";
+            //btnobj[i].value="怀孕了"//i=6没有这个索引
+            //页面加载的时候for循环已经循环完毕 此时i的值已经变为了6，而我们的数组中并没有这个索引
+        };
+    }
+    /*本案例的逻辑：先获取所有的按钮标签，遍历所有的按钮给每个按钮注册点击事件，
+    *再循环遍历一次给所有的标签充值标签属性值，最后给点击的那个标签设置属性值
+    * */
+
+</script>
+</body>
+</html>

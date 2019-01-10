@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+<div id="dv" style="width: 300px;height: 200px; border: 2px solid mediumvioletred;overflow: auto">
+    饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过
+    饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过
+    饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过
+    饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过
+    饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过饿我去换个很强悍人让我如何人二维火维护无任何温热后期而过
+</div>
+<script>
+    /** scroll系列
+     *scrollWidth：元素中内容实际的宽（没有边框），如果没有内容就是元素的宽
+     *scrollHeight：元素中内容实际的高（没有边框），如果没有内容就是元素的高
+     *scrollTop：超出元素的内容值
+     * scrollLeft：超出元素的内容值
+     * */
+    // console.log(my$("dv").scrollWidth);
+    // console.log(my$("dv").scrollHeight);
+    // console.log(my$("dv").scrollTop);
+    // console.log(my$("dv").scrollLeft);
+
+    //div的滚动事件
+    my$("dv").onscroll=function () {
+        console.log(this.scrollTop);
+    };
+</script>
+</body>
+</html>

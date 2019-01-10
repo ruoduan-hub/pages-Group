@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        #dv img{
+            width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="动起来" id="btn" />
+<input type="button" value="停止" id="btn1" />
+<div id="dv" style="position: absolute">
+    <img src="../images/1.jpg" alt="" />
+    <img src="../images/2.jpg" alt="" />
+</div>
+<script>
+    //获得2个随机数
+    var timeId;
+    my$("btn").onclick=function () {
+         timeId=setInterval(function () {
+            var x=parseInt(Math.random()*100+1);
+            var y=parseInt(Math.random()*100+1);
+            my$("dv").style.left=x+"px";
+            my$("dv").style.top=y+"px";
+        },100)
+    };
+    my$("btn1").onclick=function () {
+        window.clearInterval(timeId);
+    };
+</script>
+</body>
+</html>

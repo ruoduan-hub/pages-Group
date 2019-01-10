@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function Animal(name,age){
+        name=name;
+        age=age
+    };
+    //原型中添加方法
+    Animal.prototype.eat=function () {
+      console.log("吃饭")
+        this.play();
+    };
+    Animal.prototype.play=function () {
+      console.log("玩")
+    };
+    Animal.prototype.sleep=function () {
+      console.log("睡觉")
+    };
+    var dog=new Animal("大黄","2");
+    dog.eat();//吃饭，玩
+</script>
+</body>
+</html>

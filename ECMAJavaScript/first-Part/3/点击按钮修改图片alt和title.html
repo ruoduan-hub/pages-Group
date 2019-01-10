@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="../images/x.jpg" alt="哈哈" title="嘻嘻" />
+<input type="button" id="btn" value="按钮">
+<script>
+    document.getElementById("btn").onclick=function () {
+        var imgObj=document.getElementsByTagName("img");
+        imgObj[0].alt="改了alt";//返回的数组中第一个元素就是img 所以用索引0来找到这个img
+        imgObj[0].title="改了2";
+    }
+</script>
+<!----------------------------------------------------------------------------------------------------------------->
+<br><input type="button" id="btn1" value="按钮"  /><br>
+<input type="text" value="未改变" /><br>
+<input type="text" value="未改变" /><br>
+<input type="text" value="未改变" /><br>
+<input type="text" value="未改变" /><br>
+<input type="text" value="未改变" /><br>
+<script>
+    document.getElementById("btn1").onclick=function () {
+        var inpObj=document.getElementsByTagName("input");
+        for (var i=0;i<inpObj.length;i++){
+            if (inpObj[i].type!=="button"){//判断返回的数组中每个值的type是不是按钮，来让按钮不改变其他都改变
+                inpObj[i].value="点击改变了，button不改变"
+            }
+        }
+    };
+</script>
+
+
+
+</body>
+</html>

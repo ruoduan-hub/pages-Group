@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        #dv td{
+            width: 60px;
+            height: auto;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="点击按钮创建一个表格" id="btn" />
+<div id="dv" style="width: 300px;height: 500px;border: 2px solid gray;margin-top: 10px"></div>
+<script>
+    //点击按钮创建表格
+    var arr=[//键值对
+    {name:"百度",href:"http://www.baidu.com"},
+    {name:"新浪",href:"http://www.baidu.com"},
+    {name:"土豆",href:"http://www.baidu.com"},
+    {name:"熊猫",href:"http://www.baidu.com"},
+    {name:"腾讯",href:"http://www.baidu.com"},
+    {name:"网易",href:"http://www.baidu.com"}
+        ];
+    //点击按钮创建表格
+    my$("btn").onclick=function () {
+        //创建一个table
+        var tableobj=document.createElement("table");
+        tableobj.border="1";
+        tableobj.cellPadding="0";
+        tableobj.cellSpacing="0";
+        //吧tanle加入到dv中
+        my$("dv").appendChild(tableobj);
+        //创建行吧行加入到table中
+        for (var i=0;i<arr.length;i++){
+            var dt=arr[i];//每个对象
+            var trobj=document.createElement("tr");
+            tableobj.appendChild(trobj);
+            var tdobj=document.createElement("td");
+            tdobj.innerHTML=arr[i].name;
+            trobj.appendChild(tdobj);
+            var td1obj=document.createElement("td");
+            td1obj.innerHTML="<a href="+arr[i].href+">"+arr[i].name+"</a>";
+            trobj.appendChild(td1obj);
+            // //添加鼠标进入事件
+            // td1obj.onmouseover=onmouseV;
+            // //添加鼠标离开事件
+            // td1obj.onmouseout=onmouseU;
+        }
+        //为每个td添加鼠标进入和数据离开事件
+        var tdOnmuose =tableobj.getElementsByTagName("td");
+        for (var i=0;i<tdOnmuose.length;i++){
+            tdOnmuose[i].onmouseover=function () {
+                this.style.backgroundColor="red";
+            };
+            tdOnmuose[i].onmouseout=function () {
+                this.style.backgroundColor="";
+            };
+
+        }
+
+    };
+
+    // function onmouseV() {
+    //     this.style.backgroundColor="deeppink";
+    // };
+    // function onmouseU() {
+    //     this.style.backgroundColor="";
+    // }
+</script>
+</body>
+</html>

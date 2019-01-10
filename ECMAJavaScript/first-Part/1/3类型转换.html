@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类型转换</title>
+</head>
+<body>
+
+
+<script>
+
+    //其他类型转数字类型:三种方式
+
+    // 其他类型转数字类型
+    // 1.parseInt(); 转整数
+    // console.log(parseInt("10"));//10
+    // console.log(parseInt("10aa"));//10
+    // console.log(parseInt("aa10"));//NaN
+    // console.log(parseInt("a10a"));//Nan
+    // console.log(parseInt("10.6516"));//10
+    // 2.转小数 parseFloat()
+    //     console.log(parseFloat("10"));//10
+    //     console.log(parseFloat("10aa"));//10
+    //     console.log(parseFloat("aa10"));//NaN
+    //     console.log(parseFloat("a10a"));//Nan
+    //     console.log(parseFloat("10.65"));//10.65
+    //     3.转数字 Number();
+    //     console.log(Number("10"));//10
+    //     console.log(Number("10aa"));//NaN
+    //     console.log(Number("aa10"));//NaN
+    //     console.log(Number("a10a"));//Nan
+    //     console.log(Number("10.65"));//10.65
+
+    // 总结：转整数：parseInt()  转小数：parseFloat()
+    //         转数字：Number() 但是它比上面2个严格
+
+    // 其他类型转字符串类型
+    //    1 .toString()
+    // var num = 10;
+    // console.log(num.toString())//字符串类型
+    // 2.String();
+    // var num1 = 20;
+    // console.log(String(num1));
+    // 如果变量有意义调 toString();
+    // 如果变量没有意义调 String();
+
+    // 其他类型转布尔类型
+    // 1. Boolean(值);
+    Boolean(Boolean(1));//true
+    Boolean(Boolean(0));//false
+    Boolean(Boolean(11));//true
+    Boolean(Boolean(-10));//true
+    Boolean(Boolean("哈哈"));//true
+    Boolean(Boolean(""));//false
+    Boolean(Boolean(null));//fales
+    Boolean(Boolean(undefined));//false
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<ul id="uu">
+    <li>小明成绩</li>
+    <li>小新成绩</li>
+    <li>小红成绩</li>
+    <li>小蓝成绩</li>
+    <li>小黄成绩</li>
+</ul>
+<script>
+ //获取所有的li标签，为每个便签中动态的添加自定义属性和值；
+ // 点击的时候获取该标签的自定义属性的值
+    //更加id标签获取ul标签，并且获取该标签中所有的li
+
+ /*总结：设置自定义属性：.setAttribute("属性名字","属性的值")
+ *      获取自定义属性：.getAttribute("属性名字")
+ * */
+    var list=my$("uu").getElementsByTagName("li");
+    //循环遍历
+    for (var i=0;i<list.length;i++){
+        //先为每个li添加自定义属性
+        //注意这里是 setAttribute  ！！！set 要区分
+        list[i].setAttribute("score",(i+1)*10);
+
+        list[i].onclick=function () {
+            alert(this.innerText+"是："+this.getAttribute("score"));
+        }
+    }
+
+</script>
+</body>
+</html>

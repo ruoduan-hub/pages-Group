@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //求函数求2个数的和
+
+    function consoleSum() {
+        var sum1 = 10;
+        var sum2 = 20;
+        sum = sum1 + sum2;
+        console.log(sum);
+    }
+
+    consoleSum();//调用
+
+    //求3个数字的最大值
+    function consoleMax() {
+        var x = 10;
+        var y = 20;
+        var z = 30;
+        var max = x > y ? (x > z ? x : z) : (y > z ? y : z);
+        //嵌套的三元表达式；x大于y吗？
+        // 如果不大于就再问x大于z吗大于就输出x否则就输出z；
+        //如果大于在再问y大于z吗？大于就输出y否则就输出z；
+        console.log(max);
+    }
+
+    consoleMax();//调用
+
+    //求1-100所有数字的和
+    function everySum() {
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log(sum);
+    }
+
+    everySum();//调用
+
+    //求1-100所有偶数的和
+    function everyEvenSum() {
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                sum += i;
+            }
+        }
+        console.log(sum);
+    }
+
+    everyEvenSum();
+
+    //求一个数组的和
+    function everyArraySum() {
+        var arr = [10, 20, 30];
+        var sum = 0;
+        for (var i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        console.log(sum);
+    }
+    everyArraySum();
+
+</script>
+</body>
+</html>

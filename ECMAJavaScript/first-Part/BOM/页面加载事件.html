@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //window.onload 页面加载完毕，页面加载完毕才会执行里面的事件
+    window.onload=function () {//重要
+        document.getElementById("btn").onclick=function () {
+            alert("你好");
+        }
+    }
+//扩展事件----浏览器关闭后触发的事件
+//     window.onunload=function () {
+//         alert("哈哈");
+//     };
+    //扩展事件----浏览器关闭之前触发的事件
+    window.onbeforeunload=function () {
+        alert("嘻嘻");
+    }
+</script>
+<input type="button" value="按钮" id="btn"/>
+</body>
+</html>

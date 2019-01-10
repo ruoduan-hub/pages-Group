@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        ul{
+            width: 300px;
+            height: auto;
+        }
+        li{
+            cursor: pointer;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="点击添加列表" id="btn" />
+<div id="dv"></div>
+
+<script>
+    var arr=["菜籽","花菜","生菜","芹菜","紫菜","菠菜","青菜","白菜"];
+    my$("btn").onclick=function () {
+        //创建ul把ul添加到父级别元素中去
+        var ulobj = document.createElement("ul");
+        my$("dv").appendChild(ulobj);
+        //动态创建li添加到ul中
+        for (var i=0;i<arr.length;i++){
+            var liobj=document.createElement("li");
+            //设置li中间的文字内容
+            liobj.innerHTML=arr[i];
+            //把li添加到ul里面
+            ulobj.appendChild(liobj);
+            //添加鼠标进入事件
+            liobj.onmouseover=onmouseV;
+            //添加鼠标离开事件
+            liobj.onmouseout=onmouseU;
+        }
+    };
+    //如果是循环的方式添加函数推荐用命名函数----节省内存 堆里面只需要储存一次函数
+    //如果不是循环的方式添加函数推荐使用匿名函数
+    function onmouseV() {
+        this.style.backgroundColor="deeppink";
+    };
+    function onmouseU() {
+        this.style.backgroundColor="";
+    }
+
+
+</script>
+</body>
+</html>

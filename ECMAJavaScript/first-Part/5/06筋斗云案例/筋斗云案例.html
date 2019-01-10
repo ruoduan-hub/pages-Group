@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    ul {
+      list-style: none
+    }
+
+    body {
+      background-color: #333;
+    }
+
+    .nav {
+      width: 800px;
+      height: 42px;
+      margin: 100px auto;
+      background: url(images/rss.png) right center no-repeat;
+      background-color: #fff;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .nav li {
+      width: 83px;
+      height: 42px;
+      text-align: center;
+      line-height: 42px;
+      float: left;
+      cursor: pointer;
+    }
+
+    .nav span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 83px;
+      height: 42px;
+      background: url(images/cloud.gif) no-repeat;
+    }
+
+    ul {
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+<div class="nav">
+  <span id="cloud"></span>
+  <ul id="navBar">
+    <li>北京校区</li>
+    <li>上海校区</li>
+    <li>广州校区</li>
+    <li>深圳校区</li>
+    <li>武汉校区</li>
+    <li>关于我们</li>
+    <li>联系我们</li>
+    <li>招贤纳士</li>
+  </ul>
+</div>
+<script src="common.js"></script>
+<script>
+    //变速动画
+    function animate(element, target) {
+        //清理定时器
+        clearInterval(element.timeId);
+        element.timeId = setInterval(function () {
+            //获取div的当前位置
+            var current = element.offsetLeft;
+            //div每次移动多少像素
+            var step = (target-current)/10;//11111111
+            step = step>0?Math.ceil(step):Math.floor(step);//1111
+            //每次移动的距离
+            current += step;
+            element.style.left=current+"px";
+            if (current==target){
+                //清理定时器
+                clearInterval(element.timeId);
+            }
+            //测试代码:
+            console.log("目标位置:"+target+"，当前位置:"+current+"，每次移动位置:"+step+"");
+        }, 20)
+    };
+
+    //获取云彩
+    var cloud=my$("cloud");
+    //获取所有的li标签
+    var list=my$("navBar").children;
+    //循环遍历分别注册，鼠标进入，鼠标离开，鼠标点击
+  for (var i=0;i<list.length;i++){
+      //鼠标进入事件
+      list[i].onmouseover=mouseoverHandle;
+      //鼠标离开事件
+      list[i].onmouseout=mouseoutHandle;
+      //鼠标点击事件
+      list[i].onclick=onclickHadnle;
+  }
+    function mouseoverHandle() {//鼠标进入事件
+      animate(cloud,this.offsetLeft);
+    };
+    function mouseoutHandle() {//鼠标离开事件
+      animate(cloud,lastPosition)
+    };
+    //点击的时候记录上次的位置
+    var lastPosition=0;
+    function onclickHadnle() {//鼠标点击事件
+        lastPosition=this.offsetLeft;
+    };
+</script>
+</body>
+</html>

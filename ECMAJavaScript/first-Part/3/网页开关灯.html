@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .cls{
+        background-color: black;
+    }
+</style>
+<body>
+<input type="button" value="开/关灯" id="kg">
+<script src="../2/0common.js"></script>
+
+<script>
+    my$("kg").onclick=function () {
+        //获取body标签
+        document.body.className=document.body.className!="cls"?"cls":"";//三元表达式
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义构造函数练习</title>
+</head>
+<body>
+
+<script>
+
+    //创建一个图片的对象，有宽，有高，有大小，图片可以展示内容
+    //创建一个小猫的对象，小猫有颜色，体重，年龄，小猫可以抓老鼠，打架；
+    function Img(wide,high,size){
+        this.wide=wide;
+        this.high=high;
+        this.size=size;
+        this.display=function () {
+            console.log("展示图片宽："+this.wide+"高:"+this.high+"大小是:"+this.size+"M");
+        };
+    }
+    var img1=new Img(30,50,5);
+    img1.display();
+
+    function Cat(color,weight,age) {
+        this.color=color;
+        this.weight=weight;
+        this.age=age;
+        this.hit=function (){
+            console.log("打架");
+        };
+        this.grabMouse=function () {
+            console.log("抓老鼠");
+        };
+    }
+    var cat1=new Cat("白色的猫","0.5kg","2岁");
+    cat1.hit();
+    cat1.grabMouse();
+
+</script>
+</body>
+</html>

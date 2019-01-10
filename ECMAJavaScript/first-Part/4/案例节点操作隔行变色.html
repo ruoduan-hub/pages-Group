@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<input type="button" value="点击隔行变色" id="btn">
+<ul id="uu">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+    <li>9</li>
+</ul>
+<script>
+    my$("btn").onclick=function () {
+        //计数器 用来判断奇偶数的
+        var count=0;
+        //获取uu下面所有的元素
+        var nodes=my$("uu").childNodes;
+        //循环遍历所有的元素
+        for (var i=0;i<nodes.length;i++){
+            //判断每个元素node.Type是不是标签，nodeType是不是li标签
+            if (nodes[i].nodeType==1&&nodes[i].nodeName=="LI"){
+                //定义这个标签的的背景颜色是：按照计数器来计算是偶数还是奇数，偶数deeppink，否则pink
+                nodes[i].style.backgroundColor=count%2==0?"deeppink":"pink";
+                count++
+            }
+        }
+    };
+</script>
+</body>
+</html>

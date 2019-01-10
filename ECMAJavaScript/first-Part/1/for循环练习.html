@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>for循环练习</title>
+</head>
+<body>
+
+
+<script>
+    //求1-100之间所有偶数的和
+    var sum = 0;
+    for (var i = 1; i <= 100; i++) {
+        if (i % 2 == 0) {
+            sum += i;
+        }
+    }
+    console.log(sum);//2550
+
+    //求1-100之间所有奇数的和
+    var sum = 0;
+    for (var i = 1; i <= 100; i++) {
+        if (i % 2 !== 0) {
+            sum += i;
+        }
+    }
+    console.log(sum);//2500
+
+    //能被3整除的数字和
+    var sum=0;
+    for (var i =1;i<=100;i++){
+        if (i%3==0){
+            sum+=i;
+        }
+    }
+    console.log(sum);//1683
+    //能被7整除的数字
+    var sum=0;
+    for (var i=1;i<=100;i++){
+        if (i%7==0){
+            sum+=i;
+        }
+    }
+    console.log(sum);//735
+
+</script>
+</body>
+</html>

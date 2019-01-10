@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    //创建正则表达式对象
+
+    //两种:
+    /*
+    * 1.通过构造函数创建对象
+    *
+    * 2.字面量的方式创建对象
+    *
+    * 正则表达式的作用:匹配字符串的
+    * */
+    //对象的方式创建
+    var reg=new RegExp(/\d{5}/);
+    //字符串
+    var str="myPhoneID10086";
+    //调用方法验证字符串是否匹配
+    var flag=reg.test(str);
+    console.log(flag);//true
+
+    //对象的方式创建
+    var reg=new RegExp(/\d{5}/);
+    //调用方法验证字符串是否匹配
+    var flag=reg.test("myPhoneID10086");
+    console.log(flag);//true
+    //--------------------字面量的方式创建正则表达式------------------------
+
+    var reg=/\d{5}/;
+    var flag=reg.test("myPhoneID10086");
+    console.log(flag);//true
+
+</script>
+</body>
+</html>

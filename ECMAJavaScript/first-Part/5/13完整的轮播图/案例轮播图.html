@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        * {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 0;
+        }
+
+        .all {
+            width: 500px;
+            height: 200px;
+            padding: 7px;
+            border: 1px solid #ccc;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        .screen {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .screen li {
+            width: 500px;
+            height: 200px;
+            overflow: hidden;
+            float: left;
+        }
+
+        .screen ul {
+            position: absolute;
+            left: 0;
+            top: 0px;
+            width: 3000px;
+        }
+
+        .all ol {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            line-height: 20px;
+            text-align: center;
+        }
+
+        .all ol li {
+            float: left;
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            border: 1px solid #ccc;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .all ol li.current {
+            background: #DB192A;
+        }
+
+        #arr {
+            display: none;
+        }
+
+        #arr span {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            margin-top: -20px;
+            background: #000;
+            cursor: pointer;
+            line-height: 40px;
+            text-align: center;
+            font-weight: bold;
+            font-family: '黑体';
+            font-size: 30px;
+            color: #fff;
+            opacity: 0.3;
+            border: 1px solid #fff;
+        }
+
+        #arr #right {
+            right: 5px;
+            left: auto;
+        }
+    </style>
+    <script src="common.js"></script>
+    <script>
+        //设置任意的一个元素,移动到指定的目标位置
+        function animate(element, target) {
+            clearInterval(element.timeId);
+            //定时器的id值存储到对象的一个属性中
+            element.timeId = setInterval(function () {
+                //获取元素的当前的位置,数字类型
+                var current = element.offsetLeft;
+                //每次移动的距离
+                var step = 10;
+                step = current < target ? step : -step;
+                //当前移动到位置
+                current += step;
+                if (Math.abs(current - target) > Math.abs(step)) {
+                    element.style.left = current + "px";
+                } else {
+                    //清理定时器
+                    clearInterval(element.timeId);
+                    //直接到达目标
+                    element.style.left = target + "px";
+                }
+            }, 10);
+        }
+    </script>
+</head>
+<body>
+<script>
+    //设置任意的一个元素,移动到指定的目标位置
+    function animate(element, target) {
+        clearInterval(element.timeId);
+        //定时器的id值存储到对象的一个属性中
+        element.timeId = setInterval(function () {
+            //获取元素的当前的位置,数字类型
+            var current = element.offsetLeft;
+            //每次移动的距离
+            var step = 10;
+            step = current < target ? step : -step;
+            //当前移动到位置
+            current += step;
+            if (Math.abs(current - target) > Math.abs(step)) {
+                element.style.left = current + "px";
+            } else {
+                //清理定时器
+                clearInterval(element.timeId);
+                //直接到达目标
+                element.style.left = target + "px";
+            }
+        }, 10);
+    }
+</script>
+<div class="all" id='box'>
+    <div class="screen"><!--相框-->
+        <ul>
+            <li><img src="images/1.jpg" width="500" height="200"/></li>
+            <li><img src="images/2.jpg" width="500" height="200"/></li>
+            <li><img src="images/3.jpg" width="500" height="200"/></li>
+            <li><img src="images/4.jpg" width="500" height="200"/></li>
+            <li><img src="images/5.jpg" width="500" height="200"/></li>
+        </ul>
+        <ol>
+        </ol>
+    </div>
+    <div id="arr"><span id="left">&lt;</span><span id="right">&gt;</span></div>
+</div>
+<script>
+    //获取最外层的div
+    var box = my$("box");
+    //获取相框
+    var screen = box.children[0];
+    //获取相框的宽度
+    var imgWidth = screen.offsetWidth;
+    //获取ul
+    var ulObj = screen.children[0];
+    //获取ul中所有的li
+    var list = ulObj.children;
+    //获取ol
+    var olObj = screen.children[1];
+    //获取焦点层
+    var arr = my$("arr");
+
+    var pic=0;
+    //创建小按钮----根据li的个数
+    for (var i = 0; i < list.length; i++) {
+        //创建li加入的ol标签中
+        var liObj = document.createElement("li");
+        olObj.appendChild(liObj);
+        liObj.innerHTML = (i + 1);
+        //在每个ol中的li标签上添加一个自定义属性 存储索引值
+        liObj.setAttribute("index", i);
+        //注册事件进入事件
+        liObj.onmouseover = function () {
+            //排他ol里面的li背景颜色
+            for (var j = 0; j < olObj.children.length; j++) {
+                olObj.children[j].removeAttribute("class");
+            }
+            //设置事件进入时li背景颜色
+            this.className = "current";
+            //获取鼠标进入的li的当前索引值
+             pic = this.getAttribute("index");
+            //移动ul
+            animate(ulObj, -pic * imgWidth);
+        };
+    }
+    //设置ol第一个li有背景颜色
+    olObj.children[0].className = "current";
+    //克隆一个ul中的第一个li加入到最后
+    //false只克隆标签里面内容不要true反之
+    ulObj.appendChild(list[0].cloneNode(true));
+    //自动播放
+    var timeId=setInterval(clickHadnle,2000);
+    //鼠标进入到box，显示左右的div
+    box.onmouseover=function () {
+        my$("arr").style.display="block";
+        //鼠标进入清理之前的定时器
+        clearInterval(timeId);
+    };
+    box.onmouseout=function () {
+        my$("arr").style.display="none";
+        //鼠标离开自动播放
+        timeId=setInterval(clickHadnle,2000);
+    };
+    //右边按钮点击事件
+    my$("right").onclick=clickHadnle;
+    function clickHadnle () {
+        if (pic==list.length-1){
+            pic=0;
+            ulObj.style.left=0+"px";
+        }
+        //点击按钮让pic++
+        pic++
+        animate(ulObj,-pic*imgWidth);
+        //如果pic==5说明，此时显示第6个图（内容是第一张图片），第一个按钮有颜色
+        if (pic==list.length-1){
+            //第五个按钮颜色清除
+            olObj.children[olObj.children.length-1].className="";
+            //第一个按钮颜色设置上
+            olObj.children[0].className="current";
+        }else {
+            //清空所有的小按钮的背景颜色
+            for (k=0;k<olObj.children.length;k++){
+                olObj.children[k].removeAttribute("class");
+            }
+            olObj.children[pic].className="current";
+        }
+
+    };
+    //左边按钮点击事件
+    my$("left").onclick=function () {
+        if (pic==0){
+            pic=5;
+            ulObj.style.left=-pic*imgWidth+"px";
+        }
+        pic--;
+        animate(ulObj,-pic*imgWidth);
+        //设置小按钮的颜色
+        for (var i=0;i<olObj.children.length;i++){
+            //所有的小按钮排他清除颜色
+            olObj.children[i].removeAttribute("class");
+        }
+        //点击的小按钮赋值颜色
+        olObj.children[pic].className="current";
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+
+<body>
+<input type="button" id="btn" value="显示效果" />
+<div id="dv" style="width: 300px;height: 300px; border: 2px solid green"></div>
+</body>
+<script>
+    //点击按钮改变div 的颜色
+
+    function ChangeStyle(btnObj,dvObj,json) {
+        this.btnObj=btnObj;
+        this.dvObj=dvObj;
+        this.json=json;
+    };
+    ChangeStyle.prototype.init=function () {
+      //点击按钮改变多个样式属性
+         var that=this;//这里的this
+        that.btnObj.onclick=function () {//按钮
+            for (var key in that.json){
+                that.dvObj.style[key]=that.json[key];
+                console.log("1");//被执行的四次说明json的数据有4组
+                // console.dir(that);
+            }
+        };
+    };
+
+    //实例化对象
+    var json={
+                width:"500px",height:"500px",backgroundColor:"deeppink",opacity:"0.2"};
+    var cs=new ChangeStyle(my$("btn"),my$("dv"),json);
+    cs.init();//调用方法
+
+
+
+
+    //面向过程写法
+    // my$("btn").onclick=function () {
+    //   my$("dv").style.backgroundColor="deeppink";
+    // };
+    
+    //面向对象写法---初级
+    // function ChangeStyle(btnId,dvId,color) {
+    //     this.btnobj=document.getElementById("btn");//按钮对象
+    //     this.dvobj=document.getElementById("dv");//div对象
+    //     this.colorobj=color;//颜色
+    // };
+    // //数据共享来改变背景颜色
+    // ChangeStyle.prototype.init=function () {
+    //   //console.log(this);//就是实例对象----就是当前对象
+    //     //点击按钮，改变div颜色
+    //     var that=this;
+    //     this.btnobj.onclick=function () {
+    //         that.dvobj.style.backgroundColor="red";
+    //     }
+    // };
+    // //实例化对象
+    // var cs=new ChangeStyle("btn","dv","yellow")
+    // cs.init();//ChangeStyle {btnobj: input#btn, dvobj: div#dv, colorobj: "yellow"}
+</script>
+</html>

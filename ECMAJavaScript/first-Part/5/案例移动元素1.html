@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #dv{
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="点击移动400px" id="btn1" />
+<input type="button" value="点击移动800px" id="btn2" style="margin-bottom: 10px;" />
+<div id="dv"></div>
+<script>
+    //console.log(my$("dv").offsetLeft);//.offset获取标签和属性里面的值
+    //点击第一个按钮移动400px
+    my$("btn1").onclick=function () {
+        var timeId=setInterval(function () {
+            //获取div当前的位置
+            var current=my$("dv").offsetLeft;//数字类型没有pa
+            //div每次移动多少像素
+            var step=10;
+            //每次移动后的距离
+            current+=step;
+            //判断当前位置是否达到目标
+            if (current<=400){
+                my$("dv").style.left=current+"px";
+            } else{
+                clearInterval(timeId);
+            }
+        },20)
+    };
+    //点击第二个按钮移动800px
+    my$("btn2").onclick=function () {
+        var timeId=setInterval(function () {
+            //获取div当前的位置
+            var current=my$("dv").offsetLeft;//数字类型没有pa
+            //div每次移动多少像素
+            var step=10;
+            //每次移动后的距离
+            current+=step;
+            //判断当前位置是否达到目标
+            if (current<=800){
+                my$("dv").style.left=current+"px";
+            } else{
+                clearInterval(timeId);
+            }
+        },20)
+    };
+</script>
+</body>
+</html>

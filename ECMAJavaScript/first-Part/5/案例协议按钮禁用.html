@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<textarea name="texta" cols="30" rows="10">
+    协议：拉hi爱国贵拉黑橄榄山沟里 奥规划卡基本功离开谁给你哪里
+</textarea>
+<input type="button" value="请仔细阅读协议(5)" id="btn" disabled="disabled"/>
+
+<script>
+    var t = 5;
+    var timeid = setInterval(function () {
+        t--;
+        my$("btn").value = "请仔细阅读协议(" + t + ")";
+        if (t <= 0) {
+            clearInterval(timeid);
+            my$("btn").disabled=false;
+            my$("btn").value="同意";
+        }
+
+    }, 1000)
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="uu">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+    <li>7</li>
+    <li>8</li>
+</ul>
+<input type="button" id="btn" value="点击变色"/>
+<script>
+    my$("btn").onclick = function () {
+        //获取li标签
+        var list = my$("uu").getElementsByTagName("li");
+        for (var i = 0; i < list.length; i++) {
+            //[i]%2==0?list[i].style.backgroundColor="pink":list[i].style.backgroundColor="red";
+            list[i].style.backgroundColor=[i]%2==0?"pink":"yellow";
+        }
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算闰年</title>
+</head>
+<body>
+
+<script>
+
+    /**
+     * 判断一个年份是不是闰年
+     *定义变量存储一个年份
+     *
+     */
+    var year = parseInt(prompt("请输入年份"));
+    if (year % 4 == 0 && year % 100 !== 0 || year % 400 == 0) {
+        console.log("闰年");
+    } else {
+        console.log("平年");
+    }
+</script>
+</body>
+</html>

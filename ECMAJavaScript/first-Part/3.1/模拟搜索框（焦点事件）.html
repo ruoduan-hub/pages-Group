@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<input style="color: gray" type="text" value="请输入搜索内容" id="txt" />
+<script>
+    //注册获取焦点事件
+    my$("txt").onfocus=function () {
+        if (this.value=="请输入搜索内容"){
+            this.value="";
+            this.style.color="black";
+        }
+        this.style.color="black";
+    };
+    //注册失去焦点事件
+    my$("txt").onblur=function () {
+        // if (this.value==""){
+        //     this.value="请输入搜索内容";
+        //     this.style.color="gray";
+        // }
+        // this.style.color="gray";
+
+        //数字运算 要比字符检查要快
+        if (this.value.length==0){
+            this.value="请输入搜索内容";
+            this.style.color="gray";
+        }
+        this.style.color="gray";
+    };
+</script>
+<input type="password" id="pwd">
+<script>
+    my$("pwd").onblur=function () {
+        if(this.value.length>=6&&this.length<=10){
+            this.style.backgroundColor="red";
+        }else{
+            this.style.backgroundColor="green";
+        }
+    };
+</script>
+</body>
+</html>
