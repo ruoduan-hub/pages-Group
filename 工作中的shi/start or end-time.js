@@ -1,5 +1,5 @@
 $(function () {
-	
+	//不 return 就卡死 写提交接口的 人脑子有shi把，callback 都用不了
 	checkCustomize = function () {
 		ifTime ('#field6106','#field6107') 
 		function ifTime (t1adds,t2adds) {
