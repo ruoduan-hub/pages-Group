@@ -1,0 +1,24 @@
+html,body{
+    margin: 0;
+    padding: 0;
+
+    li{
+        font-size: 12px;
+        line-height: 30px;
+    }
+    .box{
+        width: 200px;
+        height: 100px;
+        //默认情况下 webpack 无法处理css文件中url地址，无论是图片还是字体库，只要是url地址都处理不了
+        background: url('../images/timg.jpg');
+        background-size: cover;
+    }
+    .box2{
+        width: 200px;
+        height: 100px;
+        //默认情况下 webpack 无法处理css文件中url地址，无论是图片还是字体库，只要是url地址都处理不了
+        background: url('../images2/timg.jpg');
+        background-size: cover;
+    }
+}
+
