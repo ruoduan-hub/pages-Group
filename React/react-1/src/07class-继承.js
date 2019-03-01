@@ -18,7 +18,7 @@ class American extends Person {
      * 问题2：super 是什么东西？
      * super是一个函数，而且他是父类的 构造器，子类的super，其实就是父类中的 constructor 构造器的一个引用
      * 问题3：为什么调用了 super()，之后name和age都变成了undefined？ 
-     * 实例化的时候 要把 参数 name age 传递进去 给 constructor再给super
+     * 实例化的时候 要把 参数 name age 传递进去 给 constructor再给super;
      */
         super(naem, age)
     }
