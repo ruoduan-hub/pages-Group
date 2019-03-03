@@ -1,0 +1,15 @@
+.title {
+    color: red;
+    text-align: center;
+    font-weight: 200;
+}
+/* css 模块化值针对 类 和 id选择器生效，标签选择器不会被模块化 */
+
+/* 被 :global(.test) 包裹的类名不会被模块化，是全局 */
+:global(.test) {
+    font-style: italic;
+}
+
+/* h1 {
+    font-style: italic
+} */

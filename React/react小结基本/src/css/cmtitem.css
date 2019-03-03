@@ -1,0 +1,11 @@
+.title{
+    font-size: 16px;
+    color: blue;
+}
+.box{
+    border: 1px dashed #ccc;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px #ccc;
+    text-align: center;
+}
